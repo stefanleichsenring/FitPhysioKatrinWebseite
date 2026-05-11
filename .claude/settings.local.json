@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:katrin-fit.net)",
+      "WebFetch(domain:timeless-body.com)"
+    ]
+  }
+}
