@@ -6,13 +6,13 @@
   <title>After Holiday Camp – 9 Wochen zu deinem After Holiday Body | Fit.Physio.Katrin</title>
   <meta name="description" content="9 Wochen betreutes After Holiday Camp für Frauen 40+. Sport, Ernährung & Kontrolle. Start 10. September 2026. Ab €279 einmalig.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://fitphysiokatrin.com/after-holiday-camp">
+  <link rel="canonical" href="https://fitphysiokatrin.com/ahc">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="After Holiday Camp – Dein After Holiday Body in 9 Wochen">
   <meta property="og:description" content="9 Wochen betreutes Camp · Start 10. September 2026 · Sport, Ernährung & Kontrolle · Ab €279">
-  <meta property="og:url" content="https://fitphysiokatrin.com/after-holiday-camp">
-  <meta property="og:image" content="https://fitphysiokatrin.com/after-holiday-camp/images/hero.jpg">
+  <meta property="og:url" content="https://fitphysiokatrin.com/ahc">
+  <meta property="og:image" content="https://fitphysiokatrin.com/ahc/images/logo.svg">
 
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -77,6 +77,7 @@
     .ahc-btn:hover { background: var(--ahc-red-dark); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(210, 35, 78, 0.38); }
     .ahc-btn--large { padding: 22px 52px; font-size: 1.25rem; }
     .ahc-btn--block { width: 100%; }
+    .ahc-btn.ahc-btn--hero { padding: 14px 30px; font-size: 0.95rem; width: auto; box-shadow: 0 3px 10px rgba(210, 35, 78, 0.25); }
     @media (max-width: 767px) { .ahc-btn { width: 100%; } }
 
     /* ── HERO ── */
@@ -85,30 +86,31 @@
       padding: 150px 0 0;
       background: linear-gradient(180deg, #fff 0%, var(--ahc-light-red) 55%, #fff 100%);
     }
-    .ahc-hero__grid {
-      display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center;
-      padding-bottom: 60px;
+    .ahc-hero__inner {
+      max-width: 760px; margin: 0 auto; text-align: center;
+      padding-bottom: 60px; display: flex; flex-direction: column; align-items: center;
+    }
+    .ahc-hero__img-wrap { margin-bottom: 28px; }
+    .ahc-hero__img-wrap img {
+      width: 100%; max-width: 320px; display: block;
+      filter: drop-shadow(0 16px 32px rgba(44, 59, 73, 0.2));
     }
     .ahc-hero h1 { font-size: clamp(2.4rem, 4.6vw, 4.5rem); line-height: 1.15; margin-bottom: 24px; }
     .ahc-hero h1 em { font-style: normal; color: var(--ahc-red); }
+    .ahc-hero__tagline { display: block; font-size: 0.5em; font-style: italic; font-weight: 700; margin-top: 10px; }
     .ahc-hero__sub {
       font-family: var(--ahc-body); font-weight: 400; font-size: clamp(1.1rem, 1.8vw, 1.5rem);
       color: var(--ahc-navy); line-height: 1.6; margin-bottom: 36px; max-width: 560px;
     }
-    .ahc-hero__img-wrap {
-      position: relative; border-radius: 24px; overflow: hidden;
-      box-shadow: 0 24px 64px rgba(44, 59, 73, 0.22);
-    }
-    .ahc-hero__img-wrap img { width: 100%; display: block; }
     .ahc-hero__dates {
-      display: flex; gap: 28px; flex-wrap: wrap; margin-top: 32px;
+      display: flex; gap: 28px; flex-wrap: wrap; margin-top: 32px; justify-content: center;
     }
     .ahc-hero__date-item { font-size: 0.95rem; font-weight: 600; color: var(--ahc-navy); }
     .ahc-hero__date-item strong { color: var(--ahc-red); }
 
     @media (max-width: 900px) {
       .ahc-hero { padding-top: 130px; }
-      .ahc-hero__grid { grid-template-columns: 1fr; text-align: left; }
+      .ahc-hero__img-wrap img { max-width: 240px; }
     }
 
     /* ── SECTION BASE ── */
@@ -251,7 +253,7 @@
         <li><a href="#programm">Programm</a></li>
         <li><a href="#saeulen">Die 3 Säulen</a></li>
         <li><a href="#angebot">Preis</a></li>
-        <li><a href="#checkout" class="nav__cta">Jetzt Platz sichern</a></li>
+        <li><a href="https://copecart.com/products/09840963/checkout" class="nav__cta">Jetzt Platz sichern</a></li>
       </ul>
       <button class="nav__hamburger" aria-label="Menü öffnen">
         <span></span><span></span><span></span>
@@ -264,24 +266,22 @@
   <a href="#programm">Programm</a>
   <a href="#saeulen">Die 3 Säulen</a>
   <a href="#angebot">Preis</a>
-  <a href="#checkout" style="color:#D2234E;font-size:1.2rem;">Jetzt Platz sichern →</a>
+  <a href="https://copecart.com/products/09840963/checkout" style="color:#D2234E;font-size:1.2rem;">Jetzt Platz sichern →</a>
 </div>
 
 <!-- ── HERO ── -->
 <section class="ahc-hero" id="top">
   <div class="ahc-container">
-    <div class="ahc-hero__grid">
-      <div>
-        <h1>Nach dem Urlaub fange ich an — <em>versprochen!</em> Deine Chance startet jetzt.</h1>
-        <p class="ahc-hero__sub">9 Wochen betreutes After Holiday Camp für Frauen. Sport, Ernährung &amp; Kontrolle.</p>
-        <a href="#checkout" class="ahc-btn ahc-btn--large">Jetzt Platz sichern — €279</a>
-        <div class="ahc-hero__dates">
-          <div class="ahc-hero__date-item"><strong>10. September 2026</strong>Start</div>
-          <div class="ahc-hero__date-item"><strong>9 Wochen</strong>bis 5. November 2026</div>
-        </div>
-      </div>
+    <div class="ahc-hero__inner">
       <div class="ahc-hero__img-wrap">
-        <img src="images/hero.jpg" alt="After Holiday Camp Logo mit Strand-Illustration und Katrin, Physiotherapeutin und Coach" width="1248" height="700">
+        <img src="images/logo.svg" alt="After Holiday Camp Logo mit Strand-Illustration" width="1500" height="1500">
+      </div>
+      <h1>Nach dem Urlaub fange ich an — <em>versprochen!</em> <span class="ahc-hero__tagline">Deine Chance startet jetzt.</span></h1>
+      <p class="ahc-hero__sub">9 Wochen betreutes After Holiday Camp für Frauen. Sport, Ernährung &amp; Kontrolle.</p>
+      <a href="https://copecart.com/products/09840963/checkout" class="ahc-btn ahc-btn--hero">Jetzt Platz sichern</a>
+      <div class="ahc-hero__dates">
+        <div class="ahc-hero__date-item">Start <strong>10. September 2026</strong></div>
+        <div class="ahc-hero__date-item"><strong>9 Wochen</strong> bis 5. November 2026</div>
       </div>
     </div>
   </div>
@@ -290,7 +290,7 @@
 <!-- ── PROBLEM SECTION ── -->
 <section class="ahc-section" id="problem">
   <div class="ahc-container">
-    <div class="ahc-eyebrow">Der Post-Urlaub Realität Check</div>
+    <div class="ahc-eyebrow">Was ist dein Versprechen wert?</div>
     <h2>Der Urlaub war wunderschön.<br>Bye Bye Aperol Spritz.</h2>
     <div class="ahc-accent"></div>
     <ul class="ahc-pains">
@@ -398,8 +398,8 @@
         <div class="ahc-pricing__save">Einmalzahlung · Spare €18</div>
         <div class="ahc-pricing__or">Oder</div>
         <div class="ahc-pricing__alt">3 × €99</div>
-        <p style="font-size:0.85rem;color:var(--ahc-muted);margin-bottom:24px;">monatliche Zahlungen</p>
-        <a href="#checkout" class="ahc-btn ahc-btn--block">Jetzt Platz sichern</a>
+        <p style="font-size:0.85rem;color:var(--ahc-muted);margin-bottom:24px;">in 3 Raten</p>
+        <a href="https://copecart.com/products/09840963/checkout" class="ahc-btn ahc-btn--block">Jetzt Platz sichern</a>
       </div>
     </div>
   </div>
@@ -409,12 +409,10 @@
 <section class="ahc-final-cta" id="checkout">
   <div class="ahc-container">
     <h2>Bereit für deinen After Holiday Body?</h2>
-    <!-- TODO: Copecart-Checkout-URL einsetzen -->
-    <a href="#" class="ahc-btn ahc-btn--large">Jetzt Platz sichern — €279</a>
+    <a href="https://copecart.com/products/09840963/checkout" class="ahc-btn ahc-btn--large">Jetzt Platz sichern</a>
     <div class="ahc-trust">
       <span>Zugang zur Gruppe startet sofort nach Zahlung</span>
       <span>Das Programm startet ab 10. Sept.</span>
-      <span>30-Tage-Geld-zurück-Garantie (keine Fragen)</span>
       <span>Sichere Zahlung via Copecart</span>
     </div>
   </div>
@@ -438,7 +436,7 @@
 
 <!-- ── STICKY MOBILE CTA ── -->
 <div class="ahc-sticky-cta">
-  <a href="#checkout" class="ahc-btn ahc-btn--block">Jetzt Platz sichern — €279</a>
+  <a href="https://copecart.com/products/09840963/checkout" class="ahc-btn ahc-btn--block">Jetzt Platz sichern</a>
 </div>
 
 <script src="../assets/js/script.js" defer></script>
