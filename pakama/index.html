@@ -90,8 +90,8 @@
     .pk-hero__inner { max-width: 1120px; margin: 0 auto; }
     .pk-hero__grid {
       display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 20px 56px;
-      grid-template-areas: "copy video" "cta video";
-      align-items: center;
+      grid-template-areas: "copy video" "copy cta";
+      align-items: start;
     }
     .pk-hero__copy { grid-area: copy; }
     .pk-hero__cta { grid-area: cta; }
@@ -103,8 +103,13 @@
     }
 
     /* ── VIDEO EMBED ── */
+    .pk-video-block { grid-area: video; }
+    .pk-video-label {
+      font-size: 1rem; font-weight: 800; color: var(--pk-red);
+      letter-spacing: 0.04em; text-transform: uppercase; text-align: center;
+      margin-bottom: 12px;
+    }
     .pk-video-wrap {
-      grid-area: video;
       position: relative; width: 100%; margin: 0;
       border-radius: 16px; overflow: hidden;
       box-shadow: 0 24px 56px rgba(44, 59, 73, 0.28);
@@ -234,6 +239,11 @@
     .pk-offer-box .pk-note-box { margin-top: 28px; max-width: none; }
 
     .pk-pricing { text-align: center; background: var(--pk-light-gray); border-radius: 12px; padding: 36px 28px; }
+    .pk-pricing__photo {
+      width: 96px; height: 96px; border-radius: 50%; object-fit: cover;
+      margin: 0 auto 20px; display: block; border: 3px solid #fff;
+      box-shadow: 0 4px 14px rgba(44, 59, 73, 0.18);
+    }
     .pk-pricing__main { font-family: var(--pk-heading); font-weight: 800; font-size: 2.8rem; color: var(--pk-navy); line-height: 1.1; }
     .pk-pricing__label { color: var(--pk-muted); font-size: 0.95rem; margin: 6px 0 24px; }
 
@@ -347,8 +357,11 @@
           <p class="pk-hero__sub">15 Workout-Videos in voller Länge von Katrin – physiotherapeutisch fundiert, speziell für dein Pakama-Equipment.</p>
         </div>
 
-        <div class="pk-video-wrap" id="video">
-          <iframe src="https://player.vimeo.com/video/1201482371?title=0&byline=0&portrait=0" title="Pakama Workouts by Katrin" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        <div class="pk-video-block">
+          <div class="pk-video-label">Dein Gratis Workout</div>
+          <div class="pk-video-wrap" id="video">
+            <iframe src="https://player.vimeo.com/video/1201482371?title=0&byline=0&portrait=0" title="Pakama Workouts by Katrin" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
         </div>
 
         <div class="pk-hero__cta">
@@ -497,6 +510,7 @@
       </div>
 
       <div class="pk-pricing">
+        <img src="images/katrin-pricing.jpg" alt="Katrin" class="pk-pricing__photo" loading="lazy">
         <a href="https://copecart.com/products/d135f640/checkout" class="pk-btn pk-btn--block">Jetzt kaufen</a>
         <div class="pk-pricing__main" style="margin-top:24px;">€59,90</div>
         <div class="pk-pricing__label">Einmalzahlung</div>
@@ -509,7 +523,7 @@
 <section class="pk-final-cta" id="checkout">
   <div class="pk-container">
     <h2>Bereit, dein Pakama Set endlich sinnvoll zu nutzen?</h2>
-    <a href="https://copecart.com/products/d135f640/checkout" class="pk-btn pk-btn--large">Jetzt für €59,90 sichern</a>
+    <a href="https://copecart.com/products/d135f640/checkout" class="pk-btn pk-btn--large">Jetzt sichern</a>
     <div class="pk-trust">
       <span>Sofortiger Zugriff nach dem Kauf</span>
       <span>Einmalzahlung — kein Abo</span>
