@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pakama Workouts by Katrin – 15 Videos für dein Trainingsset | Fit.Physio.Katrin</title>
+  <meta name="description" content="15 Workout-Videos in voller Länge für dein Pakama Trainingsset. Physiotherapeutisch fundiert von Katrin. Einmaliger Kauf, kein Abo, ab €59,90.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://fitphysiokatrin.com/pakama">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pakama Workouts by Katrin – 15 Videos für dein Trainingsset">
+  <meta property="og:description" content="Physiotherapeutisch fundierte Workouts speziell für dein Pakama-Set · Einmaliger Kauf · Ab €59,90">
+  <meta property="og:url" content="https://fitphysiokatrin.com/pakama">
+  <meta property="og:image" content="https://fitphysiokatrin.com/pakama/images/hero.jpg">
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    /* ── PAKAMA WORKOUTS — Page Styles ── */
+    :root {
+      --pk-navy: #2C3B49;
+      --pk-red: #D2234E;
+      --pk-red-dark: #A01838;
+      --pk-light-red: #F0C9D1;
+      --pk-light-gray: #E8E8E8;
+      --pk-muted: rgba(44, 59, 73, 0.58);
+      --pk-border: #CCCCCC;
+      --pk-heading: 'Playfair Display', Georgia, serif;
+      --pk-body: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    body { font-family: var(--pk-body); color: var(--pk-navy); background: #fff; }
+    h1, h2, h3, h4 { font-family: var(--pk-heading); font-weight: 800; letter-spacing: -0.01em; color: var(--pk-navy); }
+    p { font-family: var(--pk-body); color: var(--pk-navy); }
+
+    .pk-container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+    @media (max-width: 767px) { .pk-container { padding: 0 20px; } }
+
+    /* ── NAV override ── */
+    .nav {
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 24px rgba(44,59,73,0.08);
+    }
+    .nav__logo { font-family: var(--pk-heading); font-weight: 800; color: var(--pk-navy); }
+    .nav__links a { color: var(--pk-navy); }
+    .nav__hamburger span { background: var(--pk-navy); }
+    .nav__cta, .pk-btn { font-family: var(--pk-body); }
+
+    /* ── EYEBROW ── */
+    .pk-eyebrow {
+      font-family: var(--pk-body); font-size: 1.1rem; font-weight: 800;
+      color: var(--pk-red); letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    /* ── ACCENT LINE ── */
+    .pk-accent {
+      width: 52px; height: 4px; background: var(--pk-red); border-radius: 2px;
+      margin: 16px 0 28px;
+    }
+    .pk-accent--center { margin-left: auto; margin-right: auto; }
+
+    /* ── BUTTONS ── */
+    .pk-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      background: var(--pk-red); color: #fff; font-weight: 800; font-size: 1.1rem;
+      padding: 18px 40px; border-radius: 8px; border: none; cursor: pointer;
+      box-shadow: 0 4px 12px rgba(210, 35, 78, 0.3);
+      transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+      min-height: 48px; text-align: center;
+    }
+    .pk-btn:hover { background: var(--pk-red-dark); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(210, 35, 78, 0.38); }
+    .pk-btn--large { padding: 22px 52px; font-size: 1.25rem; }
+    .pk-btn--block { width: 100%; }
+    .pk-btn.pk-btn--hero { padding: 14px 30px; font-size: 0.95rem; width: auto; box-shadow: 0 3px 10px rgba(210, 35, 78, 0.25); }
+    @media (max-width: 767px) { .pk-btn { width: 100%; } }
+
+    /* ── HERO ── */
+    .pk-hero {
+      position: relative; overflow: hidden;
+      padding: 150px 0 60px;
+      background: linear-gradient(180deg, #fff 0%, var(--pk-light-red) 55%, #fff 100%);
+    }
+    .pk-hero__inner {
+      max-width: 820px; margin: 0 auto; text-align: center;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .pk-hero h1 { font-size: clamp(2.2rem, 4.2vw, 3.8rem); line-height: 1.15; margin-bottom: 20px; }
+    .pk-hero h1 em { font-style: normal; color: var(--pk-red); }
+    .pk-hero__sub {
+      font-family: var(--pk-body); font-weight: 400; font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+      color: var(--pk-navy); line-height: 1.6; margin-bottom: 36px; max-width: 620px;
+    }
+
+    /* ── VIDEO EMBED ── */
+    .pk-video-wrap {
+      position: relative; width: 100%; max-width: 760px; margin: 0 auto 32px;
+      border-radius: 16px; overflow: hidden;
+      box-shadow: 0 24px 56px rgba(44, 59, 73, 0.28);
+      background: var(--pk-navy);
+    }
+    .pk-video-wrap::before { content: ''; display: block; padding-top: 56.25%; }
+    .pk-video-wrap iframe {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
+    }
+
+    .pk-hero__note {
+      font-size: 0.9rem; color: var(--pk-muted); margin-top: 8px;
+    }
+
+    @media (max-width: 900px) {
+      .pk-hero { padding-top: 130px; }
+    }
+
+    /* ── SECTION BASE ── */
+    .pk-section { padding: 90px 0; }
+    .pk-section--gray { background: var(--pk-light-gray); }
+    .pk-section h2 { font-size: clamp(1.9rem, 3.4vw, 3.2rem); line-height: 1.25; margin-bottom: 8px; }
+    .pk-section h3 { font-size: clamp(1.6rem, 2.6vw, 2.6rem); line-height: 1.3; margin-bottom: 8px; }
+    @media (max-width: 767px) { .pk-section { padding: 56px 0; } }
+
+    /* ── PROBLEM SECTION ── */
+    .pk-pains { list-style: none; margin-top: 32px; max-width: 760px; }
+    .pk-pains li {
+      display: flex; gap: 14px; align-items: flex-start;
+      font-size: 1.05rem; line-height: 1.6; color: var(--pk-navy);
+      margin-bottom: 18px;
+    }
+    .pk-pains li::before {
+      content: '●'; color: var(--pk-red); font-size: 0.7rem; margin-top: 8px; flex-shrink: 0;
+    }
+
+    /* ── REQUIREMENT NOTE ── */
+    .pk-note-box {
+      display: flex; gap: 14px; align-items: flex-start;
+      background: #fff; border: 1px solid var(--pk-border); border-left: 4px solid var(--pk-red);
+      border-radius: 10px; padding: 20px 24px; margin-top: 36px; max-width: 760px;
+      box-shadow: 0 4px 12px rgba(44, 59, 73, 0.06);
+    }
+    .pk-note-box__icon { font-size: 1.3rem; flex-shrink: 0; }
+    .pk-note-box p { font-size: 0.98rem; line-height: 1.6; margin: 0; font-weight: 600; }
+
+    /* ── MOTIVATION SECTION (mit Bild) ── */
+    .pk-motivation { background: var(--pk-navy); color: #fff; }
+    .pk-motivation__grid {
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center;
+    }
+    .pk-motivation p { color: rgba(255,255,255,0.88); font-size: 1.05rem; line-height: 1.75; margin-bottom: 20px; }
+    .pk-motivation p:last-of-type { margin-bottom: 0; }
+    .pk-motivation blockquote {
+      font-family: var(--pk-heading); font-style: italic; font-weight: 700;
+      font-size: clamp(1.1rem, 1.8vw, 1.4rem); color: #fff;
+      border-left: 4px solid var(--pk-red); padding: 4px 0 4px 24px;
+      margin: 28px 0; line-height: 1.5;
+    }
+    .pk-motivation__signature { font-family: var(--pk-heading); font-weight: 800; font-size: 1.2rem; color: var(--pk-red); margin-top: 24px; }
+    .pk-motivation__img { border-radius: 16px; overflow: hidden; box-shadow: 0 24px 56px rgba(0,0,0,0.35); }
+    .pk-motivation__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    @media (max-width: 900px) {
+      .pk-motivation__grid { grid-template-columns: 1fr; gap: 32px; }
+      .pk-motivation__img { order: -1; max-height: 340px; }
+    }
+
+    /* ── 3-PILLAR GRID ── */
+    .pk-pillars {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 44px;
+    }
+    .pk-pillar {
+      background: #fff; border: 1px solid var(--pk-border); border-radius: 12px;
+      padding: 36px 30px; box-shadow: 0 4px 12px rgba(44, 59, 73, 0.08);
+    }
+    .pk-pillar__num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 44px; height: 44px; border-radius: 50%; background: var(--pk-red);
+      color: #fff; font-family: var(--pk-heading); font-weight: 800; font-size: 1.1rem;
+      margin-bottom: 18px;
+    }
+    .pk-pillar h4 { font-size: 1.4rem; margin-bottom: 14px; }
+    .pk-pillar p { font-size: 0.98rem; line-height: 1.6; color: var(--pk-navy); margin: 0; }
+
+    @media (max-width: 1024px) { .pk-pillars { grid-template-columns: 1fr 1fr; } .pk-pillar:nth-child(3) { grid-column: 1 / -1; } }
+    @media (max-width: 700px) { .pk-pillars { grid-template-columns: 1fr; } .pk-pillar:nth-child(3) { grid-column: auto; } }
+
+    /* ── TESTIMONIALS ── */
+    .pk-testimonials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 44px; }
+    .pk-testimonial {
+      background: #fff; border: 1px solid var(--pk-border); border-radius: 12px;
+      padding: 30px; box-shadow: 0 4px 12px rgba(44, 59, 73, 0.08);
+      display: flex; flex-direction: column;
+    }
+    .pk-testimonial__mark { font-family: var(--pk-heading); font-size: 2.6rem; line-height: 1; color: var(--pk-red); font-weight: 800; margin-bottom: 4px; }
+    .pk-testimonial p { font-size: 0.98rem; line-height: 1.65; color: var(--pk-navy); margin-bottom: 18px; flex-grow: 1; }
+    .pk-testimonial__name { font-family: var(--pk-heading); font-weight: 800; font-size: 1rem; color: var(--pk-navy); }
+    .pk-testimonial__role { font-size: 0.82rem; color: var(--pk-muted); }
+
+    @media (max-width: 1024px) { .pk-testimonials { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 700px) { .pk-testimonials { grid-template-columns: 1fr; } }
+
+    /* ── OFFER SECTION ── */
+    .pk-offer { background: var(--pk-navy); color: #fff; }
+    .pk-offer .pk-eyebrow { color: #ff8fa8; }
+    .pk-offer h2 { color: #fff; }
+    .pk-offer-box {
+      background: #fff; color: var(--pk-navy); border-radius: 16px; padding: 48px; margin-top: 40px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.28);
+      display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px;
+    }
+    .pk-offer-box h3 { font-size: 1.7rem; margin-bottom: 16px; }
+    .pk-includes { list-style: none; }
+    .pk-includes li {
+      display: flex; gap: 12px; align-items: flex-start;
+      font-size: 1rem; line-height: 1.6; margin-bottom: 14px; color: var(--pk-navy);
+    }
+    .pk-includes li::before { content: '✓'; color: var(--pk-red); font-weight: 800; flex-shrink: 0; }
+    .pk-offer-box .pk-note-box { margin-top: 28px; max-width: none; }
+
+    .pk-pricing { text-align: center; background: var(--pk-light-gray); border-radius: 12px; padding: 36px 28px; }
+    .pk-pricing__main { font-family: var(--pk-heading); font-weight: 800; font-size: 2.8rem; color: var(--pk-navy); line-height: 1.1; }
+    .pk-pricing__label { color: var(--pk-muted); font-size: 0.95rem; margin: 6px 0 24px; }
+
+    @media (max-width: 900px) { .pk-offer-box { grid-template-columns: 1fr; padding: 32px 24px; } }
+
+    /* ── DISCLAIMER ── */
+    .pk-disclaimer { padding: 44px 0; background: #fff; border-top: 1px solid var(--pk-light-gray); }
+    .pk-disclaimer p {
+      max-width: 700px; margin: 0 auto; text-align: center;
+      font-size: 0.88rem; line-height: 1.6; color: var(--pk-muted); font-style: italic;
+    }
+
+    /* ── FINAL CTA ── */
+    .pk-final-cta { text-align: center; padding: 100px 0; }
+    .pk-final-cta h2 { margin-bottom: 32px; }
+    .pk-trust { margin-top: 36px; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+    .pk-trust span { font-size: 0.9rem; color: var(--pk-muted); }
+
+    /* ── STICKY MOBILE CTA ── */
+    .pk-sticky-cta {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 90;
+      background: #fff; border-top: 1px solid var(--pk-border);
+      padding: 12px 16px; display: none;
+      box-shadow: 0 -4px 16px rgba(44,59,73,0.12);
+    }
+    .pk-sticky-cta .pk-btn { padding: 14px 20px; font-size: 1rem; }
+    @media (max-width: 767px) {
+      .pk-sticky-cta { display: block; }
+      body { padding-bottom: 76px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav" aria-label="Hauptnavigation">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="#top" class="nav__logo">Pakama<span style="color:var(--pk-red)">.</span>Workouts</a>
+      <ul class="nav__links">
+        <li><a href="#video">Das Video</a></li>
+        <li><a href="#workouts">Die Workouts</a></li>
+        <li><a href="#angebot">Preis</a></li>
+        <li><a href="https://copecart.com/products/d135f640/checkout" class="nav__cta">Jetzt kaufen</a></li>
+      </ul>
+      <button class="nav__hamburger" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="nav__mobile" role="dialog" aria-label="Mobilmenü">
+  <a href="#video">Das Video</a>
+  <a href="#workouts">Die Workouts</a>
+  <a href="#angebot">Preis</a>
+  <a href="https://copecart.com/products/d135f640/checkout" style="color:#D2234E;font-size:1.2rem;">Jetzt kaufen →</a>
+</div>
+
+<!-- ── HERO ── -->
+<section class="pk-hero" id="top">
+  <div class="pk-container">
+    <div class="pk-hero__inner">
+      <div class="pk-eyebrow">Für dein Pakama Trainingsset</div>
+      <h1>Dein Set liegt im Schrank? <em>Das ändern wir jetzt.</em></h1>
+      <p class="pk-hero__sub">15 Workout-Videos in voller Länge von Katrin – physiotherapeutisch fundiert, speziell für dein Pakama-Equipment. Schau dir im Video an, worum es geht.</p>
+
+      <div class="pk-video-wrap" id="video">
+        <iframe src="https://player.vimeo.com/video/1201482371?title=0&byline=0&portrait=0" title="Pakama Workouts by Katrin" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+
+      <a href="https://copecart.com/products/d135f640/checkout" class="pk-btn pk-btn--hero">Jetzt für €59,90 sichern</a>
+      <p class="pk-hero__note">Einmaliger Kauf · Sofort abrufbar · Kein Abo</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROBLEM SECTION ── -->
+<section class="pk-section" id="problem">
+  <div class="pk-container">
+    <div class="pk-eyebrow">Kommt dir das bekannt vor?</div>
+    <h2>Das Set war eine gute Idee.<br>Genutzt wird es trotzdem nicht.</h2>
+    <div class="pk-accent"></div>
+    <ul class="pk-pains">
+      <li>Du hast dir ein Pakama Fitnessrucksack-Set zugelegt, um flexibel und ortsunabhängig zu trainieren?</li>
+      <li>Die zugehörige App sagt dir aber einfach nicht zu?</li>
+      <li>Ohne klare Anleitung bleibt das Equipment ungenutzt in der Ecke stehen?</li>
+      <li>Du wünschst dir echte Übungsvideos statt App-Wisch-Anleitung?</li>
+      <li>Und am liebsten physiotherapeutisch fundiert, damit du sicher und richtig trainierst?</li>
+    </ul>
+
+    <div class="pk-note-box">
+      <span class="pk-note-box__icon">ℹ️</span>
+      <p>Wichtig: Dieser Kurs setzt voraus, dass du bereits ein Trainingsset von Pakama besitzt. Die Workouts sind speziell auf dieses Equipment abgestimmt.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── KATRIN MOTIVATIONSREDE ── -->
+<section class="pk-section pk-motivation">
+  <div class="pk-container">
+    <div class="pk-motivation__grid">
+      <div>
+        <p>Immer wieder erzählen mir Frauen, dass sie sich ein Pakama-Set gekauft haben – motiviert, endlich flexibel und ortsunabhängig zu trainieren. Und dann? Bleibt es liegen. Nicht, weil die Motivation fehlt, sondern weil die App einfach nicht das bietet, was sie sich erhofft haben.</p>
+        <blockquote>„Ich will einfach ein Video sehen, mitmachen und wissen, dass ich es richtig mache.“</blockquote>
+        <p>Genau deshalb habe ich die Pakama Workouts aufgenommen. 15 Videos in voller Länge, in denen ich dir mit meinem physiotherapeutischen Know-how zeige, wie du dein Set optimal nutzt – motivierend, praxisnah und sicher in der Ausführung. Kein Schnickschnack, keine App, kein Abo. Du drückst Play, wann es für dich passt, und trainierst mit mir mit.</p>
+        <div class="pk-motivation__signature">— Katrin</div>
+      </div>
+      <div class="pk-motivation__img">
+        <img src="images/motivation.jpg" alt="Katrin trainiert mit dem Pakama Trainingsset am Meer bei Sonnenuntergang" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 3-PILLAR SYSTEM ── -->
+<section class="pk-section" id="workouts">
+  <div class="pk-container">
+    <div class="pk-eyebrow">Das bekommst du</div>
+    <h2>15 Workouts. 1 Set. Endlich richtig genutzt.</h2>
+    <div class="pk-accent"></div>
+
+    <div class="pk-pillars">
+      <div class="pk-pillar">
+        <div class="pk-pillar__num">1</div>
+        <h4>15 Videos in voller Länge</h4>
+        <p>Jederzeit abrufbar. Du trainierst, wann es für dich passt – ohne App, ohne wiederkehrendes Abo, beliebig oft wiederholbar.</p>
+      </div>
+      <div class="pk-pillar">
+        <div class="pk-pillar__num">2</div>
+        <h4>Physiotherapeutisch fundiert</h4>
+        <p>Katrin zeigt dir mit ihrem physiotherapeutischen Know-how, wie du dein Pakama-Equipment sicher und effektiv einsetzt.</p>
+      </div>
+      <div class="pk-pillar">
+        <div class="pk-pillar__num">3</div>
+        <h4>Einmaliger Kauf</h4>
+        <p>Einmal zahlen statt monatlichem Abo. Der Kurs gehört dir – dauerhaft und ohne versteckte Kosten.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="pk-section pk-section--gray" id="stimmen">
+  <div class="pk-container">
+    <div class="pk-eyebrow">Echte Erfahrungen</div>
+    <h2>Das sagen Frauen, die mit mir trainieren.</h2>
+    <div class="pk-accent"></div>
+
+    <div class="pk-testimonials">
+      <div class="pk-testimonial">
+        <div class="pk-testimonial__mark">„</div>
+        <p>Mit meinen 45 Jahren bin ich jetzt in besserer Form als Anfang 20 — fitter und energiereicher. Du hast bei mir wirklich einen Schalter umgelegt, auch mit kleinen Rückschlägen konsistent zu bleiben.</p>
+        <div class="pk-testimonial__name">Sabrina</div>
+        <div class="pk-testimonial__role">Teilnehmerin</div>
+      </div>
+      <div class="pk-testimonial">
+        <div class="pk-testimonial__mark">„</div>
+        <p>Ich bin total begeistert, habe 10 Kilo abgenommen und kann es bis heute halten! Die Übungen mache ich noch jeden Morgen, die Rezepte koche ich immer noch nach.</p>
+        <div class="pk-testimonial__name">M.</div>
+        <div class="pk-testimonial__role">Teilnehmerin</div>
+      </div>
+      <div class="pk-testimonial">
+        <div class="pk-testimonial__mark">„</div>
+        <p>Zwischen Arbeit, Familie und Alltag ist es nie einfach. Aber ich sehe, dass ich vorwärtskomme. Ich brauche jemanden, der mich antreibt und kontrolliert — so klappt es!</p>
+        <div class="pk-testimonial__name">Antje</div>
+        <div class="pk-testimonial__role">Teilnehmerin</div>
+      </div>
+      <div class="pk-testimonial">
+        <div class="pk-testimonial__mark">„</div>
+        <p>Mein Mann und ich haben beide ca. 3 kg abgenommen und sind definierter. Meine Cholesterinwerte sind ein Traum — und der Bikinifigur bin ich deutlich näher!</p>
+        <div class="pk-testimonial__name">Sarah</div>
+        <div class="pk-testimonial__role">Teilnehmerin</div>
+      </div>
+      <div class="pk-testimonial">
+        <div class="pk-testimonial__mark">„</div>
+        <p>Ich hatte noch nie so viel „Bock“ auf Sport wie jetzt gerade. Dickes Danke für das Bootcamp und deine Energie — live bist du noch motivierender!</p>
+        <div class="pk-testimonial__name">Karin</div>
+        <div class="pk-testimonial__role">Teilnehmerin</div>
+      </div>
+      <div class="pk-testimonial">
+        <div class="pk-testimonial__mark">„</div>
+        <p>Ich fühle mich fit, mein Körper schmerzt nicht mehr und ich habe ein ganz neues Bewusstsein für meine Ernährung. Es geht nicht nur ums Abnehmen, sondern um ein gesundes Körpergefühl.</p>
+        <div class="pk-testimonial__name">Judith</div>
+        <div class="pk-testimonial__role">Teilnehmerin</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── OFFER SECTION ── -->
+<section class="pk-section pk-offer" id="angebot">
+  <div class="pk-container">
+    <h2>Hol dir jetzt deine Pakama Workouts</h2>
+    <div class="pk-accent"></div>
+
+    <div class="pk-offer-box">
+      <div>
+        <h3>Pakama Workouts by Katrin</h3>
+        <ul class="pk-includes">
+          <li>15 Workout-Videos in voller Länge, jederzeit abrufbar</li>
+          <li>Effektive Übungen speziell für dein Pakama-Equipment</li>
+          <li>Physiotherapeutisch fundierte Anleitung von Katrin</li>
+          <li>Einmaliger Kauf statt monatlichem Abo</li>
+          <li>Beliebig oft wiederholbar</li>
+        </ul>
+        <div class="pk-note-box">
+          <span class="pk-note-box__icon">ℹ️</span>
+          <p>Vollständig vorab aufgezeichnet, jederzeit online abrufbar. Kein 1:1-Meeting, keine persönliche Betreuung. Voraussetzung: ein eigenes Trainingsset von Pakama.</p>
+        </div>
+      </div>
+
+      <div class="pk-pricing">
+        <a href="https://copecart.com/products/d135f640/checkout" class="pk-btn pk-btn--block">Jetzt kaufen</a>
+        <div class="pk-pricing__main" style="margin-top:24px;">€59,90</div>
+        <div class="pk-pricing__label">Einmalzahlung</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section class="pk-final-cta" id="checkout">
+  <div class="pk-container">
+    <h2>Bereit, dein Pakama Set endlich sinnvoll zu nutzen?</h2>
+    <a href="https://copecart.com/products/d135f640/checkout" class="pk-btn pk-btn--large">Jetzt für €59,90 sichern</a>
+    <div class="pk-trust">
+      <span>Sofortiger Zugriff nach dem Kauf</span>
+      <span>Einmalzahlung — kein Abo</span>
+      <span>Sichere Zahlung via Copecart</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── DISCLAIMER ── -->
+<section class="pk-disclaimer">
+  <div class="pk-container">
+    <p>Ich habe die Pakama Workouts aus eigener Motivation aufgenommen und stehe in keinem wirtschaftlichen Zusammenhang mit Pakama.</p>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__logo">Pakama<span>.</span>Workouts</div>
+      <nav class="footer__links" aria-label="Footer-Navigation">
+        <a href="../impressum/">Impressum</a>
+        <a href="../datenschutz/">Datenschutz</a>
+        <a href="https://wa.me/4915146454151" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:katrin@katrin-fit.net">Kontakt</a>
+      </nav>
+      <p class="footer__copy">© 2026 Fit.Physio.Katrin · Geniusmind LLC</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ── STICKY MOBILE CTA ── -->
+<div class="pk-sticky-cta">
+  <a href="https://copecart.com/products/d135f640/checkout" class="pk-btn pk-btn--block">Jetzt für €59,90 sichern</a>
+</div>
+
+<script src="../assets/js/script.js" defer></script>
+</body>
+</html>
