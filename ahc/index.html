@@ -185,6 +185,33 @@
       .ahc-pillar:nth-child(3) { grid-column: auto; }
     }
 
+    /* ── TESTIMONIALS ── */
+    .ahc-testimonials {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 44px;
+    }
+    .ahc-testimonial {
+      background: #fff; border: 1px solid var(--ahc-border); border-radius: 12px;
+      padding: 30px; box-shadow: 0 4px 12px rgba(44, 59, 73, 0.08);
+      display: flex; flex-direction: column;
+    }
+    .ahc-testimonial__mark {
+      font-family: var(--ahc-heading); font-size: 2.6rem; line-height: 1;
+      color: var(--ahc-red); font-weight: 800; margin-bottom: 4px;
+    }
+    .ahc-testimonial p {
+      font-size: 0.98rem; line-height: 1.65; color: var(--ahc-navy);
+      margin-bottom: 18px; flex-grow: 1;
+    }
+    .ahc-testimonial__name { font-family: var(--ahc-heading); font-weight: 800; font-size: 1rem; color: var(--ahc-navy); }
+    .ahc-testimonial__role { font-size: 0.82rem; color: var(--ahc-muted); }
+
+    @media (max-width: 1024px) {
+      .ahc-testimonials { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 700px) {
+      .ahc-testimonials { grid-template-columns: 1fr; }
+    }
+
     /* ── OFFER SECTION ── */
     .ahc-offer { background: var(--ahc-navy); color: #fff; }
     .ahc-offer .ahc-eyebrow { color: #ff8fa8; }
@@ -364,6 +391,54 @@
           <li>Tägliche Motivation + Accountability (Gelbes-Karten-System für Regel-Verstöße)</li>
           <li>Katrin schaut täglich nach, wer trainiert hat, wer tracked, wer aktiv ist</li>
         </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="ahc-section ahc-section--gray" id="stimmen">
+  <div class="ahc-container">
+    <div class="ahc-eyebrow">Echte Erfahrungen</div>
+    <h2>Das sagen Frauen, die mit mir arbeiten.</h2>
+    <div class="ahc-accent"></div>
+
+    <div class="ahc-testimonials">
+      <div class="ahc-testimonial">
+        <div class="ahc-testimonial__mark">„</div>
+        <p>Mit meinen 45 Jahren bin ich jetzt in besserer Form als Anfang 20 — fitter und energiereicher. Du hast bei mir wirklich einen Schalter umgelegt, auch mit kleinen Rückschlägen konsistent zu bleiben.</p>
+        <div class="ahc-testimonial__name">Sabrina</div>
+        <div class="ahc-testimonial__role">Teilnehmerin</div>
+      </div>
+      <div class="ahc-testimonial">
+        <div class="ahc-testimonial__mark">„</div>
+        <p>Ich bin total begeistert, habe 10 Kilo abgenommen und kann es bis heute halten! Die Übungen mache ich noch jeden Morgen, die Rezepte koche ich immer noch nach.</p>
+        <div class="ahc-testimonial__name">M.</div>
+        <div class="ahc-testimonial__role">Teilnehmerin</div>
+      </div>
+      <div class="ahc-testimonial">
+        <div class="ahc-testimonial__mark">„</div>
+        <p>Zwischen Arbeit, Familie und Alltag ist es nie einfach. Aber ich sehe, dass ich vorwärtskomme. Ich brauche jemanden, der mich antreibt und kontrolliert — so klappt es!</p>
+        <div class="ahc-testimonial__name">Antje</div>
+        <div class="ahc-testimonial__role">Teilnehmerin</div>
+      </div>
+      <div class="ahc-testimonial">
+        <div class="ahc-testimonial__mark">„</div>
+        <p>Mein Mann und ich haben beide ca. 3 kg abgenommen und sind definierter. Meine Cholesterinwerte sind ein Traum — und der Bikinifigur bin ich deutlich näher!</p>
+        <div class="ahc-testimonial__name">Sarah</div>
+        <div class="ahc-testimonial__role">Teilnehmerin</div>
+      </div>
+      <div class="ahc-testimonial">
+        <div class="ahc-testimonial__mark">„</div>
+        <p>Ich hatte noch nie so viel „Bock“ auf Sport wie jetzt gerade. Dickes Danke für das Bootcamp und deine Energie — live bist du noch motivierender!</p>
+        <div class="ahc-testimonial__name">Karin</div>
+        <div class="ahc-testimonial__role">Teilnehmerin</div>
+      </div>
+      <div class="ahc-testimonial">
+        <div class="ahc-testimonial__mark">„</div>
+        <p>Ich fühle mich fit, mein Körper schmerzt nicht mehr und ich habe ein ganz neues Bewusstsein für meine Ernährung. Es geht nicht nur ums Abnehmen, sondern um ein gesundes Körpergefühl.</p>
+        <div class="ahc-testimonial__name">Judith</div>
+        <div class="ahc-testimonial__role">Teilnehmerin</div>
       </div>
     </div>
   </div>
