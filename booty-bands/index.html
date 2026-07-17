@@ -102,31 +102,14 @@
       color: var(--bb-navy); line-height: 1.6; margin-bottom: 36px; max-width: 480px;
     }
 
-    /* ── VERTICAL VIDEO ── */
+    /* ── VERTICAL VIDEO (Instagram Embed) ── */
     .bb-video-wrap {
-      position: relative; width: 100%; max-width: 300px; margin: 0 auto 36px;
-      aspect-ratio: 9 / 16;
-      border-radius: 20px; overflow: hidden;
-      box-shadow: 0 24px 56px rgba(44, 59, 73, 0.28);
-      background: var(--bb-navy);
+      width: 100%; max-width: 360px; margin: 0 auto 36px;
     }
-    .bb-video-wrap iframe,
-    .bb-video-wrap video {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; object-fit: cover;
+    .bb-video-wrap blockquote.instagram-media {
+      margin: 0 auto !important;
+      box-shadow: 0 24px 56px rgba(44, 59, 73, 0.28) !important;
     }
-    .bb-video-placeholder {
-      position: absolute; inset: 0;
-      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
-      background: linear-gradient(160deg, var(--bb-navy) 0%, #1c2732 100%);
-      border: 2px dashed rgba(255,255,255,0.3);
-      color: rgba(255,255,255,0.85); text-align: center; padding: 24px;
-    }
-    .bb-video-placeholder__icon {
-      width: 56px; height: 56px; border-radius: 50%; background: var(--bb-red);
-      display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.3rem;
-      box-shadow: 0 6px 16px rgba(210,35,78,0.4);
-    }
-    .bb-video-placeholder p { color: rgba(255,255,255,0.85); font-size: 0.9rem; line-height: 1.5; margin: 0; }
 
     .bb-hero__ctas {
       display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; width: 100%;
@@ -267,12 +250,12 @@
       <h1>Knackiger Po, starke Beine — mit <em>einem kleinen Band.</em></h1>
       <p class="bb-hero__sub">7 Booty Band Workouts von Katrin. Kurz, effektiv und überall trainierbar — egal ob Zuhause, im Studio oder unterwegs.</p>
 
-      <!-- TODO Stefan: Instagram-Reel-Embed hier einsetzen, sobald das Video vorhanden ist -->
       <div class="bb-video-wrap" id="video">
-        <div class="bb-video-placeholder">
-          <div class="bb-video-placeholder__icon">▶</div>
-          <p>Instagram-Reel folgt<br>Übungen mit dem Booty Band</p>
-        </div>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Da5EWK2IlqM/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 24px 56px rgba(44,59,73,0.28); margin:0 auto; max-width:400px; min-width:326px; padding:0; width:calc(100% - 2px);">
+          <div style="padding:16px; text-align:center;">
+            <a href="https://www.instagram.com/reel/Da5EWK2IlqM/" style="color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-weight:600; text-decoration:none;" target="_blank" rel="noopener">Workout-Reel auf Instagram ansehen</a>
+          </div>
+        </blockquote>
       </div>
 
       <div class="bb-hero__ctas">
@@ -405,5 +388,6 @@
 </div>
 
 <script src="../assets/js/script.js" defer></script>
+<script async src="//www.instagram.com/embed.js"></script>
 </body>
 </html>
