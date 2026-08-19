@@ -134,41 +134,54 @@
     .team-card__role { color: var(--red); font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px; }
     .team-card p { font-size: 0.92rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
 
-    /* ── Route Timeline ── */
+    /* ── Route Stations (interactive accordion) ── */
     .route-intro { text-align: center; max-width: 640px; margin: 0 auto 56px; }
-    .route-timeline { position: relative; max-width: 900px; margin: 0 auto; }
-    .route-timeline::before {
-      content: ''; position: absolute; top: 0; bottom: 0; left: 27px;
-      width: 2px; background: repeating-linear-gradient(to bottom, rgba(210,35,78,0.4) 0 8px, transparent 8px 16px);
-    }
-    .route-day {
-      position: relative; padding-left: 76px; margin-bottom: 40px;
-    }
-    .route-day:last-child { margin-bottom: 0; }
-    .route-day__num {
-      position: absolute; left: 0; top: 0;
-      width: 56px; height: 56px; border-radius: 50%;
-      background: var(--navy); border: 3px solid var(--red);
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 800; color: white; font-size: 1.1rem;
-      box-shadow: 0 4px 20px rgba(210,35,78,0.3);
-    }
-    .route-card {
+    .route-stations { max-width: 820px; margin: 0 auto; }
+    .route-station {
+      margin-bottom: 16px; border-radius: 18px; overflow: hidden;
       background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 18px; overflow: hidden;
-      display: grid; grid-template-columns: 220px 1fr;
-      transition: border-color 0.3s, background 0.3s;
+      transform: scale(1); transform-origin: center left;
+      transition: transform 0.15s ease-out, border-color 0.3s, background 0.3s, box-shadow 0.2s;
+      will-change: transform;
     }
-    .route-card:hover { border-color: rgba(210,35,78,0.3); background: rgba(210,35,78,0.05); }
-    .route-card--noimg { grid-template-columns: 1fr; }
-    .route-card__img { aspect-ratio: 4/3; overflow: hidden; }
-    .route-card__img img { width: 100%; height: 100%; object-fit: cover; }
-    .route-card__body { padding: 22px 26px; }
-    .route-card__date { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 6px; }
-    .route-card__body h3 { color: white; margin-bottom: 8px; font-size: 1.05rem; }
-    .route-card__body p { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.6; margin: 0; }
+    .route-station:last-child { margin-bottom: 0; }
+    .route-station.is-focused {
+      border-color: rgba(210,35,78,0.35); background: rgba(210,35,78,0.06);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.35);
+    }
+    .route-station__header {
+      width: 100%; display: flex; align-items: center; gap: 18px;
+      padding: 16px 20px; background: none; border: none; cursor: pointer;
+      text-align: left; font-family: inherit;
+    }
+    .route-station__num {
+      flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%;
+      background: var(--navy); border: 2px solid var(--red);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; color: white; font-size: 1rem;
+    }
+    .route-station.is-focused .route-station__num { background: var(--red); }
+    .route-station__label { flex: 1; min-width: 0; }
+    .route-station__place { display: block; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 2px; }
+    .route-station__title { display: block; color: white; font-weight: 700; font-size: 1rem; }
+    .route-station__chevron {
+      flex-shrink: 0; color: rgba(255,255,255,0.4); font-size: 1.3rem;
+      transition: transform 0.3s var(--ease);
+    }
+    .route-station__header[aria-expanded="true"] .route-station__chevron { transform: rotate(90deg); color: var(--red); }
+    .route-station__panel {
+      max-height: 0; overflow: hidden; transition: max-height 0.45s var(--ease);
+    }
+    .route-station__panel-inner { padding: 0 20px 24px; }
+    .route-station__img { border-radius: 12px; overflow: hidden; margin-bottom: 16px; aspect-ratio: 16/9; }
+    .route-station__img img { width: 100%; height: 100%; object-fit: cover; }
+    .route-station__panel-inner p { font-size: 0.92rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin: 0; }
+    .route-station__gallery { display: flex; gap: 10px; margin-top: 14px; }
+    .route-station__gallery a { flex: 1; border-radius: 10px; overflow: hidden; aspect-ratio: 1; }
+    .route-station__gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+    .route-station__gallery a:hover img { transform: scale(1.08); }
     .route-summary {
-      max-width: 900px; margin: 48px auto 0; padding: 20px 28px;
+      max-width: 820px; margin: 48px auto 0; padding: 20px 28px;
       background: rgba(210,35,78,0.08); border: 1px solid rgba(210,35,78,0.2);
       border-radius: 16px; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 16px; text-align: center;
     }
@@ -346,16 +359,16 @@
       .includes-grid   { grid-template-columns: repeat(2, 1fr); }
       .travel-grid     { grid-template-columns: 1fr; }
       .payment-grid    { grid-template-columns: 1fr; }
-      .route-card      { grid-template-columns: 1fr; }
-      .route-card__img { aspect-ratio: 16/9; }
     }
     @media (max-width: 640px) {
       .fw-hero { padding: 120px 0 80px; }
       .includes-grid { grid-template-columns: 1fr; }
       .food-grid { grid-template-columns: repeat(2, 1fr); }
-      .route-timeline::before { left: 21px; }
-      .route-day { padding-left: 58px; }
-      .route-day__num { width: 42px; height: 42px; font-size: 0.9rem; }
+      .route-station__header { padding: 14px 16px; gap: 12px; }
+      .route-station__num { width: 38px; height: 38px; font-size: 0.9rem; }
+      .route-station__panel-inner { padding: 0 16px 20px; }
+      .route-station__gallery { flex-wrap: wrap; }
+      .route-station__gallery a { flex: 1 1 30%; }
       .whatsapp-float { width: 52px; height: 52px; font-size: 1.4rem; bottom: 16px; right: 16px; }
     }
 
@@ -520,7 +533,7 @@
   <div class="container">
     <div class="benefits__header">
       <h2 class="fade-up">Wer euch begleitet</h2>
-      <p class="fade-up fade-up-delay-1">Zwei Frauen, zwei Perspektiven – gemeinsam sorgen sie dafür, dass Bewegung, Gesundheit und die schönsten Ecken der Adria zusammenkommen.</p>
+      <p class="fade-up fade-up-delay-1">Katrin &amp; Sabrina, dazu Skipper und Bordkoch – gemeinsam sorgen sie dafür, dass Bewegung, Gesundheit, sicheres Segeln und die schönsten Ecken der Adria zusammenkommen.</p>
     </div>
     <div class="team-grid">
       <div class="team-card fade-up">
@@ -534,6 +547,18 @@
         <h3>Sabrina</h3>
         <div class="team-card__role">Ärztin &amp; Segelbegeisterte</div>
         <p>Sabrina ist Ärztin, erfahrene Skipperin und leidenschaftliche Seglerin. Mit über 20 Jahren Segel-Erfahrung und seit 2011 mit Katamaranen unterwegs. Sie kennt die schönsten Buchten, versteckte Lieblingsplätze und besondere Aktivitäten an Land in dem Revier – und ist als Ärztin auch an Bord, falls einmal medizinische Hilfe benötigt wird.</p>
+      </div>
+      <div class="team-card fade-up fade-up-delay-2">
+        <div class="team-card__avatar"><img src="images/team/igor.jpg" alt="Igor" loading="lazy"></div>
+        <h3>Igor</h3>
+        <div class="team-card__role">Kapitän</div>
+        <p>Igor segelt seit seinem 10. Lebensjahr und ist seit über acht Jahren als Kapitän unterwegs – auf Katamaranen bis 70 Fuß in der Adria und im Mittelmeer. Routenplanung, Sicherheit und ein entspanntes Gefühl an Bord sind bei ihm in den besten Händen.</p>
+      </div>
+      <div class="team-card fade-up fade-up-delay-3">
+        <div class="team-card__avatar"><img src="images/team/luka.jpg" alt="Luka" loading="lazy"></div>
+        <h3>Luka</h3>
+        <div class="team-card__role">Bordkoch</div>
+        <p>Seit 15 Jahren kocht Luka auf Yachten und ist Spezialist für dalmatinische Küche. Am liebsten arbeitet er mit frischem Fisch, den er in seiner Freizeit selbst angelt – Kochen ist für ihn eine echte Leidenschaft.</p>
       </div>
     </div>
   </div>
@@ -549,86 +574,136 @@
 
     <p class="ferry-tip fade-up" style="margin-bottom:48px;">🧭 <strong>Geplante Route:</strong> Die Stopps und Reihenfolge unten sind sorgfältig geplant – aus Sicherheitsgründen entscheidet der Skipper aber situativ vor Ort. Bei Wind und Wetter kann es kurzfristig zu Änderungen einzelner Ankerplätze oder der Reihenfolge kommen.</p>
 
-    <div class="route-timeline">
-      <div class="route-day fade-up">
-        <div class="route-day__num">1</div>
-        <div class="route-card">
-          <div class="route-card__img"><img src="images/route/dubrovnik.jpg" alt="Altstadt von Dubrovnik von oben" loading="lazy"></div>
-          <div class="route-card__body">
-            <div class="route-card__date">Dubrovnik</div>
-            <h3>Ankommen &amp; einschiffen</h3>
+    <div class="route-stations">
+      <div class="route-station fade-up" data-station="1">
+        <button class="route-station__header" aria-expanded="false">
+          <span class="route-station__num">1</span>
+          <span class="route-station__label">
+            <span class="route-station__place">Dubrovnik</span>
+            <span class="route-station__title">Ankommen &amp; einschiffen</span>
+          </span>
+          <span class="route-station__chevron">›</span>
+        </button>
+        <div class="route-station__panel">
+          <div class="route-station__panel-inner">
+            <div class="route-station__img"><img src="images/route/dubrovnik.jpg" alt="Altstadt von Dubrovnik von oben" loading="lazy"></div>
             <p>Anreise nach Dubrovnik, Bootsübernahme mit Sicherheitseinweisung – und ein erster Abend in der berühmten Altstadt.</p>
           </div>
         </div>
       </div>
 
-      <div class="route-day fade-up">
-        <div class="route-day__num">2</div>
-        <div class="route-card">
-          <div class="route-card__img"><img src="images/route/ston.jpg" alt="Die Mauern von Ston in Kroatien" loading="lazy"></div>
-          <div class="route-card__body">
-            <div class="route-card__date">Ston</div>
-            <h3>Über die zweitlängste Mauer Europas</h3>
-            <p>Vormittags Zeit für die Altstadt, mittags Ablegen Richtung Stonski Kanal. Zu Fuß geht es über die historische Steinmauer nach Ston – bekannt für Austern und Salzgärten.</p>
+      <div class="route-station fade-up" data-station="2">
+        <button class="route-station__header" aria-expanded="false">
+          <span class="route-station__num">2</span>
+          <span class="route-station__label">
+            <span class="route-station__place">Ston</span>
+            <span class="route-station__title">Über die zweitlängste Mauer Europas</span>
+          </span>
+          <span class="route-station__chevron">›</span>
+        </button>
+        <div class="route-station__panel">
+          <div class="route-station__panel-inner">
+            <div class="route-station__img"><img src="images/route/ston-aerial.jpg" alt="Ston von oben mit den berühmten Salzgärten" loading="lazy"></div>
+            <p>Vormittags Zeit für die Altstadt, mittags Ablegen Richtung Stonski Kanal. Zu Fuß geht es über die historische Steinmauer nach Ston – mit Blick auf die weltberühmten Salzgärten und den Ort von oben.</p>
+            <div class="route-station__gallery">
+              <a href="images/route/ston-wall-1.jpg" target="_blank" rel="noopener"><img src="images/route/ston-wall-1.jpg" alt="Steinmauer von Ston" loading="lazy"></a>
+              <a href="images/route/ston-wall-2.jpg" target="_blank" rel="noopener"><img src="images/route/ston-wall-2.jpg" alt="Steinmauer von Ston" loading="lazy"></a>
+              <a href="images/route/ston-wall-3.jpg" target="_blank" rel="noopener"><img src="images/route/ston-wall-3.jpg" alt="Steinmauer von Ston" loading="lazy"></a>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="route-day fade-up">
-        <div class="route-day__num">3</div>
-        <div class="route-card">
-          <div class="route-card__img"><img src="images/route/mljet.jpg" alt="Brücke über den See Veliko Jezero im Nationalpark Mljet" loading="lazy"></div>
-          <div class="route-card__body">
-            <div class="route-card__date">Nationalpark Mljet</div>
-            <h3>Fahrradtour &amp; die kleine Klosterinsel</h3>
-            <p>Ein ganzer Tag im Nationalpark Mljet: Auf dem Fahrrad geht es entlang der türkisfarbenen Salzseen, mit einem Abstecher zur kleinen Klosterinsel mitten im Veliko Jezero – Ruhe und Natur pur.</p>
+      <div class="route-station fade-up" data-station="3">
+        <button class="route-station__header" aria-expanded="false">
+          <span class="route-station__num">3</span>
+          <span class="route-station__label">
+            <span class="route-station__place">Nationalpark Mljet</span>
+            <span class="route-station__title">Fahrradtour im Nationalpark</span>
+          </span>
+          <span class="route-station__chevron">›</span>
+        </button>
+        <div class="route-station__panel">
+          <div class="route-station__panel-inner">
+            <div class="route-station__img"><img src="images/route/mljet.jpg" alt="Brücke über den See Veliko Jezero im Nationalpark Mljet" loading="lazy"></div>
+            <p>Ein ganzer Tag im Nationalpark Mljet: Auf dem Fahrrad geht es entlang der türkisfarbenen Salzseen – Ruhe und Natur pur, mitten im ältesten Nationalpark der Adria.</p>
           </div>
         </div>
       </div>
 
-      <div class="route-day fade-up">
-        <div class="route-day__num">4</div>
-        <div class="route-card">
-          <div class="route-card__img"><img src="images/route/korcula.jpg" alt="Altstadt von Korčula vom Wasser aus gesehen" loading="lazy"></div>
-          <div class="route-card__body">
-            <div class="route-card__date">Korčula</div>
-            <h3>Traumhafte Altstadt zum Bummeln</h3>
-            <p>Der Moment, wenn du um die Ecke kommst und zum ersten Mal die Stadtmauer von Korčula siehst, bleibt hängen – die Altstadt ist einfach traumhaft schön. Am Nachmittag ist Zeit für einen entspannten Bummel durch die Gassen und ein bisschen Shopping.</p>
+      <div class="route-station fade-up" data-station="4">
+        <button class="route-station__header" aria-expanded="false">
+          <span class="route-station__num">4</span>
+          <span class="route-station__label">
+            <span class="route-station__place">Korčula</span>
+            <span class="route-station__title">Traumhafte Altstadt &amp; Kloster Badija</span>
+          </span>
+          <span class="route-station__chevron">›</span>
+        </button>
+        <div class="route-station__panel">
+          <div class="route-station__panel-inner">
+            <div class="route-station__img"><img src="images/route/korcula.jpg" alt="Altstadt von Korčula vom Wasser aus gesehen" loading="lazy"></div>
+            <p>Der Moment, wenn du um die Ecke kommst und zum ersten Mal die Stadtmauer von Korčula siehst, bleibt hängen – die Altstadt ist einfach traumhaft schön. Am Nachmittag ist Zeit für einen entspannten Bummel durch die Gassen und ein bisschen Shopping, optional mit einem Abstecher zum Franziskanerkloster auf der vorgelagerten Insel Badija.</p>
+            <div class="route-station__gallery">
+              <a href="images/route/korcula-kloster-1.jpg" target="_blank" rel="noopener"><img src="images/route/korcula-kloster-1.jpg" alt="Kloster Badija bei Korčula von oben" loading="lazy"></a>
+              <a href="images/route/korcula-kloster-2.jpg" target="_blank" rel="noopener"><img src="images/route/korcula-kloster-2.jpg" alt="Kloster Badija bei Korčula vom Wasser aus" loading="lazy"></a>
+              <a href="images/route/korcula-kloster-3.jpg" target="_blank" rel="noopener"><img src="images/route/korcula-kloster-3.jpg" alt="Katamaran vor dem Kloster Badija" loading="lazy"></a>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="route-day fade-up">
-        <div class="route-day__num">5</div>
-        <div class="route-card">
-          <div class="route-card__img"><img src="images/route/hvar.jpg" alt="Festung Španjola über der Altstadt von Hvar" loading="lazy"></div>
-          <div class="route-card__body">
-            <div class="route-card__date">Hvar</div>
-            <h3>Festung Španjola &amp; Ankern bei den Pakleni-Inseln</h3>
+      <div class="route-station fade-up" data-station="5">
+        <button class="route-station__header" aria-expanded="false">
+          <span class="route-station__num">5</span>
+          <span class="route-station__label">
+            <span class="route-station__place">Hvar</span>
+            <span class="route-station__title">Festung Španjola &amp; Ankern bei den Pakleni-Inseln</span>
+          </span>
+          <span class="route-station__chevron">›</span>
+        </button>
+        <div class="route-station__panel">
+          <div class="route-station__panel-inner">
+            <div class="route-station__img"><img src="images/route/hvar.jpg" alt="Festung Španjola über der Altstadt von Hvar" loading="lazy"></div>
             <p>Spaziergang durch die Altstadt von Hvar mit Besuch der Festung Španjola hoch über der Stadt. Am Abend ankern wir in den türkisblauen Buchten der Pakleni-Inseln.</p>
           </div>
         </div>
       </div>
 
-      <div class="route-day fade-up">
-        <div class="route-day__num">6</div>
-        <div class="route-card">
-          <div class="route-card__img"><img src="images/route/drvenik-mali.jpg" alt="Blue Lagoon bei Drvenik" loading="lazy"></div>
-          <div class="route-card__body">
-            <div class="route-card__date">Blue Lagoon</div>
-            <h3>Baden in der Blue Lagoon</h3>
-            <p>Wir ankern in der berühmten Blue Lagoon – genau hier ist auch unser Profilbild entstanden. Am letzten gemeinsamen Abend genießen wir das Essen in der Beach Bar Skoy Beach, mit der wir freundschaftlich verbunden sind.</p>
+      <div class="route-station fade-up" data-station="6">
+        <button class="route-station__header" aria-expanded="false">
+          <span class="route-station__num">6</span>
+          <span class="route-station__label">
+            <span class="route-station__place">Blue Lagoon</span>
+            <span class="route-station__title">Baden in der Blue Lagoon</span>
+          </span>
+          <span class="route-station__chevron">›</span>
+        </button>
+        <div class="route-station__panel">
+          <div class="route-station__panel-inner">
+            <div class="route-station__img"><img src="images/route/bluelagoon-1.jpg" alt="Die Blue Lagoon aus der Luft mit ankernden Katamaranen" loading="lazy"></div>
+            <p>Wir ankern in der berühmten Blue Lagoon – genau hier ist auch unser Profilbild entstanden. Am letzten gemeinsamen Abend genießen wir das Essen in der Beach Bar Škoy, mit der wir freundschaftlich verbunden sind.</p>
+            <div class="route-station__gallery">
+              <a href="images/route/bluelagoon-skoy.jpg" target="_blank" rel="noopener"><img src="images/route/bluelagoon-skoy.jpg" alt="Beach Bar Škoy an der Blue Lagoon" loading="lazy"></a>
+              <a href="images/route/bluelagoon-3.jpg" target="_blank" rel="noopener"><img src="images/route/bluelagoon-3.jpg" alt="Die Blue Lagoon aus der Luft" loading="lazy"></a>
+              <a href="images/route/bluelagoon-5.jpg" target="_blank" rel="noopener"><img src="images/route/bluelagoon-5.jpg" alt="Die Blue Lagoon aus der Luft" loading="lazy"></a>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="route-day fade-up">
-        <div class="route-day__num">7</div>
-        <div class="route-card">
-          <div class="route-card__img"><img src="images/boat/AdriaticTiger9.jpg" alt="Katamaran Adriatic Tiger vor der Skyline von Split" loading="lazy"></div>
-          <div class="route-card__body">
-            <div class="route-card__date">Split</div>
-            <h3>Rückkehr nach Split</h3>
+      <div class="route-station fade-up" data-station="7">
+        <button class="route-station__header" aria-expanded="false">
+          <span class="route-station__num">7</span>
+          <span class="route-station__label">
+            <span class="route-station__place">Split</span>
+            <span class="route-station__title">Rückkehr nach Split</span>
+          </span>
+          <span class="route-station__chevron">›</span>
+        </button>
+        <div class="route-station__panel">
+          <div class="route-station__panel-inner">
+            <div class="route-station__img"><img src="images/boat/AdriaticTiger9.jpg" alt="Katamaran Adriatic Tiger vor der Skyline von Split" loading="lazy"></div>
             <p>Ankunft in der Marina Kaštela, etwas außerhalb des Zentrums. Wer noch Zeit hat, bevor es nach Hause geht, kann die Altstadt von Split erkunden oder zur Aussichtsplattform am Kap Marjan hochgehen.</p>
           </div>
         </div>
@@ -960,6 +1035,52 @@
       }
     });
   });
+
+  // Route stations accordion
+  document.querySelectorAll('.route-station__header').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      document.querySelectorAll('.route-station__header').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        b.closest('.route-station').querySelector('.route-station__panel').style.maxHeight = '';
+      });
+      if (!isOpen) {
+        const panel = btn.closest('.route-station').querySelector('.route-station__panel');
+        btn.setAttribute('aria-expanded', 'true');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+      setTimeout(updateRouteScale, 60);
+    });
+  });
+  document.querySelectorAll('.route-station__panel').forEach(panel => {
+    panel.addEventListener('transitionend', updateRouteScale);
+  });
+
+  // Route stations scroll-scale ("slot machine reel") effect
+  const routeStations = document.querySelectorAll('.route-station');
+  let routeTicking = false;
+  function updateRouteScale() {
+    const vh = window.innerHeight;
+    const center = vh / 2;
+    routeStations.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      const elCenter = rect.top + rect.height / 2;
+      const dist = Math.abs(elCenter - center);
+      const maxDist = center + rect.height / 2;
+      const proximity = Math.max(0, 1 - dist / maxDist);
+      const scale = 0.95 + proximity * 0.06;
+      el.style.transform = 'scale(' + scale.toFixed(3) + ')';
+      el.classList.toggle('is-focused', proximity > 0.72);
+    });
+    routeTicking = false;
+  }
+  if (routeStations.length) {
+    updateRouteScale();
+    window.addEventListener('scroll', () => {
+      if (!routeTicking) { requestAnimationFrame(updateRouteScale); routeTicking = true; }
+    }, { passive: true });
+    window.addEventListener('resize', updateRouteScale);
+  }
 
   // ActiveCampaign form logic
   window.cfields = {"55":"strasse","56":"hausnummer","58":"plz","59":"stadt","12":"country"};
