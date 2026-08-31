@@ -241,32 +241,6 @@
       .ahc-offer-box { grid-template-columns: 1fr; padding: 32px 24px; }
     }
 
-    /* ── RECIPE BOOK ADD-ON ── */
-    .ahc-addon {
-      background: #fff; color: var(--ahc-navy); border-radius: 16px; margin-top: 30px;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.28); overflow: hidden;
-      display: grid; grid-template-columns: 1fr 1fr; align-items: stretch;
-    }
-    .ahc-addon__img { min-height: 260px; }
-    .ahc-addon__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .ahc-addon__content { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
-    .ahc-addon__badge {
-      display: inline-block; align-self: flex-start;
-      background: var(--ahc-light-red); color: var(--ahc-red-dark);
-      font-size: 0.78rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
-      padding: 6px 14px; border-radius: 100px; margin-bottom: 16px;
-    }
-    .ahc-addon__content h3 { font-size: 1.5rem; margin-bottom: 14px; }
-    .ahc-addon__content p { font-size: 0.98rem; line-height: 1.65; margin-bottom: 12px; }
-    .ahc-addon__price { font-family: var(--ahc-heading); font-weight: 800; color: var(--ahc-red); }
-    .ahc-addon__note { font-size: 0.85rem; color: var(--ahc-muted); margin-bottom: 0; }
-
-    @media (max-width: 900px) {
-      .ahc-addon { grid-template-columns: 1fr; }
-      .ahc-addon__img { min-height: 200px; }
-      .ahc-addon__content { padding: 28px 24px; }
-    }
-
     /* ── FINAL CTA ── */
     .ahc-final-cta { text-align: center; padding: 100px 0; }
     .ahc-final-cta h2 { margin-bottom: 32px; }
@@ -375,7 +349,7 @@
     <h2>Was wäre, wenn… ich dich an die Hand nehme?</h2>
     <div class="ahc-accent"></div>
     <div class="ahc-promise-box">
-      <p>After Holiday Camp ist fokussiert auf zwei Bereiche. Sport und Ernährung. Simple and easy! Es ist ein 9-Wochen Programm mit einer privaten WhatsApp-Community und echtem Accountability — ich kontrolliere deine Trainings und dein Essverhalten!</p>
+      <p>After Holiday Camp ist fokussiert auf zwei Bereiche. Sport und Ernährung. Simple and easy! Es ist ein 9-Wochen Programm — alles läuft in einer App, mit echtem Accountability: ich kontrolliere deine Trainings und dein Essverhalten!</p>
     </div>
   </div>
 </section>
@@ -404,7 +378,7 @@
         <ul>
           <li>Clean Eating: kein Zucker, kein Alkohol, kein Weizen</li>
           <li>„Schalte den Kopf aus“ Ernährung – Rezeptbuch für 5 Tage pro Woche</li>
-          <li>Sofort als PDF zum Download – das gedruckte Ringbuch gibt's optional dazu</li>
+          <li>Alle Rezepte direkt in der App abrufbar</li>
           <li>KI-Food-Tracking: Foto machen → App erkennt automatisch die Kalorien &amp; Makros</li>
           <li>Katrin kontrolliert dein Essverhalten (kein Scan = gelbe Karte, zu viele Kalorien = gelbe Karte)</li>
         </ul>
@@ -413,7 +387,7 @@
         <div class="ahc-pillar__num">3</div>
         <h4>Kontrolle</h4>
         <ul>
-          <li>Deine private WhatsApp-Community (nur Programm-Teilnehmer)</li>
+          <li>Dein App-Chat mit Katrin (nur Programm-Teilnehmerinnen)</li>
           <li>Tägliche Motivation + Accountability (Gelbes-Karten-System für Regel-Verstöße)</li>
           <li>Katrin schaut täglich nach, wer trainiert hat, wer tracked, wer aktiv ist</li>
         </ul>
@@ -486,9 +460,8 @@
         <ul class="ahc-includes">
           <li>45 Workout Videos zum Mittrainieren in Echtzeit (5× pro Woche)</li>
           <li>5 Live Q&amp;A Calls mit Katrin (alle 14 Tage)</li>
-          <li>Digitales Rezeptbuch zum Sofortausdruck (PDF)</li>
-          <li>Gedrucktes Rezept-Workbook optional dazu buchbar (+ €14,99)</li>
-          <li>Private WhatsApp-Community (tägliche Motivation)</li>
+          <li>Alle Rezepte für 9 Wochen direkt in der App</li>
+          <li>App-Chat mit Katrin (tägliches Feedback &amp; Motivation)</li>
           <li>KI-Food-Tracking per App (Foto → Analyse) — freigeschaltet für die 9 Wochen</li>
           <li>1 Jahr Zugang zu allen Workouts und Rezepten</li>
         </ul>
@@ -503,18 +476,6 @@
         <p style="font-size:0.85rem;color:var(--ahc-muted);">in 3 Raten</p>
       </div>
     </div>
-
-    <div class="ahc-addon">
-      <div class="ahc-addon__img">
-        <img src="images/rezeptbuch-banner.jpg" alt="Rezeptbuch und Einkaufslisten zum After Holiday Camp als gedrucktes Ringbuch" width="1248" height="700" loading="lazy">
-      </div>
-      <div class="ahc-addon__content">
-        <span class="ahc-addon__badge">Optional beim Checkout</span>
-        <h3>Dein Rezeptbuch zum Anfassen</h3>
-        <p>Alle Rezepte und Einkaufslisten bekommst du im Programm bereits als PDF zum Sofort-Download. Wer es lieber haptisch in der Küche liegen haben möchte, kann sich beim Checkout zusätzlich das gedruckte Ringbuch dazu bestellen — für einmalig <span class="ahc-addon__price">€14,99</span>. Wir drucken es für dich und liefern innerhalb Europas.</p>
-        <p class="ahc-addon__note">Die Option erscheint automatisch, wenn du auf „Jetzt Platz sichern" klickst.</p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -524,8 +485,8 @@
     <h2>Bereit für deinen After Holiday Body?</h2>
     <a href="https://copecart.com/products/09840963/checkout" class="ahc-btn ahc-btn--large">Jetzt Platz sichern</a>
     <div class="ahc-trust">
-      <span>Zugang zur Gruppe startet sofort nach Zahlung</span>
-      <span>Das Programm startet ab 10. Sept.</span>
+      <span>Kauf &amp; Registrierung schon jetzt möglich</span>
+      <span>App-Zugang &amp; Programmstart: 10. September</span>
       <span>Sichere Zahlung via Copecart</span>
     </div>
   </div>
