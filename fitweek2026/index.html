@@ -53,6 +53,17 @@
       padding: 7px 16px; border-radius: 100px; margin-bottom: 24px;
     }
     .fw-badge::before { content: '⛵'; }
+    .spots-sticker {
+      position: absolute; top: 130px; right: 36px; z-index: 3;
+      width: 140px; height: 140px; border-radius: 50%;
+      background: var(--red); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; transform: rotate(-8deg);
+      box-shadow: 0 12px 36px rgba(210,35,78,0.55);
+      border: 3px solid rgba(255,255,255,0.85);
+    }
+    .spots-sticker__line { display: block; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.68rem; line-height: 1.3; }
+    .spots-sticker__num { display: block; font-size: 2.1rem; font-weight: 900; line-height: 1; margin: 2px 0; }
     .fw-hero h1 { color: #fff; margin-bottom: 20px; }
     .fw-hero h1 em {
       font-style: normal;
@@ -348,6 +359,10 @@
     }
     @media (max-width: 640px) {
       .fw-hero { padding: 120px 0 80px; }
+      .spots-sticker { width: 82px; height: 82px; top: 64px; right: 14px; }
+      .spots-sticker__num { font-size: 1.15rem; margin: 0; }
+      .spots-sticker__line { font-size: 0.48rem; }
+      .fw-badge { max-width: calc(100% - 96px); }
       .includes-grid { grid-template-columns: 1fr; }
       .food-grid { grid-template-columns: repeat(2, 1fr); }
       .route-station__header { padding: 14px 16px; gap: 12px; }
@@ -405,6 +420,11 @@
   <video class="fw-hero__video" autoplay muted loop playsinline poster="videos/hero-poster.jpg">
     <source src="videos/hero-sailing.mp4" type="video/mp4">
   </video>
+  <div class="spots-sticker">
+    <span class="spots-sticker__line">Nur noch</span>
+    <span class="spots-sticker__num">2</span>
+    <span class="spots-sticker__line">Plätze frei</span>
+  </div>
   <div class="container">
     <div class="fw-hero__content">
       <div class="fw-badge">3.–10. Oktober 2026 · Dubrovnik → Split</div>
@@ -412,7 +432,7 @@
         FitWeek 2026<br><em>Sailing Edition</em>
       </h1>
       <p class="fw-hero__sub fade-up fade-up-delay-1">
-        Acht Tage. Ein 62-Fuß-Katamaran. Das schönste Segelrevier Europas – und du mittendrin.
+        Eine Segelwoche. Ein 62-Fuß-Katamaran. Das schönste Segelrevier Europas – und du mittendrin.
       </p>
       <p class="fw-hero__sub2 fade-up fade-up-delay-2">
         Von Dubrovnik bis Split segelst du durch die kroatische Inselwelt: türkisblaue Buchten, warmes Oktoberwasser, stille Ankerplätze abseits der Sommer-Menge. Tagsüber Sport, Vorträge und geheime Spots mit Katrin &amp; Sabrina, abends gesunde Küche vom eigenen Bordkoch – während ein erfahrener Skipper das Segeln übernimmt.
@@ -544,7 +564,7 @@
   <div class="container">
     <div class="route-intro">
       <h2 class="fade-up">Deine Route durch die Adria</h2>
-      <p class="fade-up fade-up-delay-1">8 Tage, 7 Inseln &amp; Buchten, 148 Seemeilen – von Dubrovnik bis Split, in gemütlichen Etappen von 6–7 Knoten Durchschnittsgeschwindigkeit.</p>
+      <p class="fade-up fade-up-delay-1">Eine Segelwoche, 7 Inseln &amp; Buchten, 148 Seemeilen – von Dubrovnik bis Split, in gemütlichen Etappen von 6–7 Knoten Durchschnittsgeschwindigkeit.</p>
     </div>
 
     <p class="ferry-tip fade-up" style="margin-bottom:48px;">🧭 <strong>Geplante Route:</strong> Die Stopps und Reihenfolge unten sind sorgfältig geplant – aus Sicherheitsgründen entscheidet der Skipper aber situativ vor Ort. Bei Wind und Wetter kann es kurzfristig zu Änderungen einzelner Ankerplätze oder der Reihenfolge kommen.</p>
@@ -689,7 +709,7 @@
       <div class="route-summary__item"><strong>~148 sm</strong><span>Gesamtstrecke</span></div>
       <div class="route-summary__item"><strong>21–25 h</strong><span>reine Fahrzeit</span></div>
       <div class="route-summary__item"><strong>6–7 kn</strong><span>Ø Geschwindigkeit</span></div>
-      <div class="route-summary__item"><strong>8</strong><span>Tage an Bord</span></div>
+      <div class="route-summary__item"><strong>1</strong><span>Segelwoche</span></div>
     </div>
   </div>
 </section>
@@ -1179,7 +1199,7 @@
   "@context": "https://schema.org",
   "@type": "Event",
   "name": "FitWeek 2026 Sailing Edition",
-  "description": "8-tägiger Segeltörn von Dubrovnik nach Split auf einem 62-Fuß-Katamaran, mit Sport, Impulsvorträgen und gesunder Küche vom eigenen Bordkoch, begleitet von Katrin und Sabrina.",
+  "description": "Segelwoche von Dubrovnik nach Split auf einem 62-Fuß-Katamaran, mit Sport, Impulsvorträgen und gesunder Küche vom eigenen Bordkoch, begleitet von Katrin und Sabrina.",
   "startDate": "2026-10-03",
   "endDate": "2026-10-10",
   "location": {
