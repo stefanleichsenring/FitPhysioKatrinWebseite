@@ -126,12 +126,13 @@
     /* ── PROBLEM SECTION ── */
     .zf-pains { list-style: none; margin-top: 32px; max-width: 760px; }
     .zf-pains li {
-      display: flex; gap: 14px; align-items: flex-start;
+      position: relative; padding-left: 26px;
       font-size: 1.05rem; line-height: 1.6; color: var(--zf-navy);
       margin-bottom: 18px;
     }
     .zf-pains li::before {
-      content: '●'; color: var(--zf-red); font-size: 0.7rem; margin-top: 8px; flex-shrink: 0;
+      content: '●'; color: var(--zf-red); font-size: 0.7rem;
+      position: absolute; left: 0; top: 0.45em;
     }
 
     /* ── KATRIN SECTION ── */
