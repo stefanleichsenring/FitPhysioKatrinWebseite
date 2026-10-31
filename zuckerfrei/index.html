@@ -563,11 +563,32 @@
   // Anmeldung per FormSubmit an Katrin; Betreff enthält Vor- und Nachnamen
   (function () {
     var ENDPOINT = 'https://formsubmit.co/ajax/katrin@katrin-fit.net';
+    // Zapier-Workflow legt Kunde + Rechnung in easybill an; leer = aus
+    var INVOICE_HOOK = 'https://hooks.zapier.com/hooks/catch/4718835/PmJwsfI31tVJWjuw/';
     var form = document.getElementById('zf-form');
     var btn = document.getElementById('zf-submit');
     var err = document.getElementById('zf-error');
 
     function showError(msg) { err.textContent = msg; err.style.display = 'block'; }
+
+    function sendToInvoiceHook(data) {
+      if (!INVOICE_HOOK) return Promise.resolve();
+      var payload = new URLSearchParams({
+        vorname: data.get('Vorname').trim(),
+        nachname: data.get('Nachname').trim(),
+        strasse: data.get('Straße').trim(),
+        hausnummer: data.get('Hausnummer').trim(),
+        plz: data.get('Postleitzahl').trim(),
+        ort: data.get('Ort').trim(),
+        land: data.get('Land').trim(),
+        email: data.get('email').trim(),
+        whatsapp: data.get('WhatsApp').trim()
+      });
+      var timeout = new Promise(function (resolve) { setTimeout(resolve, 2500); });
+      var send = fetch(INVOICE_HOOK, { method: 'POST', mode: 'no-cors', keepalive: true, body: payload })
+        .catch(function () {});
+      return Promise.race([send, timeout]);
+    }
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -590,7 +611,9 @@
         .then(function (res) { return res.json().then(function (json) { return { ok: res.ok, json: json }; }); })
         .then(function (r) {
           if (!r.ok || String(r.json.success) !== 'true') throw new Error(r.json.message || 'Fehler');
-          window.location.href = '/zuckerfrei-danke/';
+          return sendToInvoiceHook(data).then(function () {
+            window.location.href = '/zuckerfrei-danke/';
+          });
         })
         .catch(function () {
           btn.disabled = false;
