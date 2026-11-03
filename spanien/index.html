@@ -23,66 +23,66 @@
 
   <style>
     /* ── Retreat-spezifische Styles ── */
-    :root { --sand: #f2c48d; --sea: #4fb3c8; }
+    :root { --sand: #b7792e; --sea: #2a8ea3; --text: #4a5a69; --line: #e3e8ee; --soft: #f5f7f9; }
 
     .rt-hero {
       min-height: 100vh; position: relative; overflow: hidden;
       display: flex; align-items: center;
       padding: 140px 0 96px;
-      background: #0f1923 url('images/terrasse.jpg') 70% 30% / cover no-repeat;
+      background: #fff url('images/terrasse.jpg') 70% 30% / cover no-repeat;
     }
     .rt-hero::before {
       content: ''; position: absolute; inset: 0;
       background:
-        linear-gradient(90deg, rgba(15,25,35,0.94) 0%, rgba(15,25,35,0.78) 40%, rgba(15,25,35,0.2) 75%, rgba(15,25,35,0.05) 100%),
-        linear-gradient(180deg, transparent 70%, #0f1923 100%);
+        linear-gradient(90deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.9) 38%, rgba(255,255,255,0.35) 68%, rgba(255,255,255,0) 100%),
+        linear-gradient(180deg, transparent 75%, #fff 100%);
     }
     @media (max-width: 900px) {
       .rt-hero::before {
-        background: linear-gradient(180deg, rgba(15,25,35,0.55) 0%, rgba(15,25,35,0.85) 45%, #0f1923 100%);
+        background: linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.86) 38%, #fff 100%);
       }
     }
     .rt-hero .container { position: relative; }
     .rt-badge {
       display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(210,35,78,0.18); border: 1px solid rgba(210,35,78,0.45);
-      color: #ffb3c4; font-size: 0.78rem; font-weight: 700;
+      background: rgba(210,35,78,0.08); border: 1px solid rgba(210,35,78,0.3);
+      color: var(--red-dark); font-size: 0.78rem; font-weight: 700;
       letter-spacing: 0.12em; text-transform: uppercase;
       padding: 7px 16px; border-radius: 100px; margin-bottom: 24px;
       backdrop-filter: blur(6px);
     }
-    .rt-hero h1 { color: #fff; margin-bottom: 20px; max-width: 760px; }
+    .rt-hero h1 { color: var(--navy); margin-bottom: 20px; max-width: 760px; }
     .rt-hero h1 em, .grad {
       font-style: normal;
       background: linear-gradient(135deg, #D2234E, #ff8fa8);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .rt-hero__sub { color: rgba(255,255,255,0.85); font-size: 1.15rem; max-width: 520px; margin-bottom: 32px; }
+    .rt-hero__sub { color: var(--text); font-size: 1.15rem; max-width: 520px; margin-bottom: 32px; }
     .rt-chips { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
     .rt-chip {
       display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18);
-      backdrop-filter: blur(8px);
-      color: #fff; font-size: 0.9rem; font-weight: 600;
+      background: rgba(255,255,255,0.9); border: 1px solid var(--line);
+      backdrop-filter: blur(8px); box-shadow: 0 2px 10px rgba(44,59,73,0.06);
+      color: var(--navy); font-size: 0.9rem; font-weight: 600;
       padding: 9px 16px; border-radius: 100px;
     }
-    .rt-chip svg { width: 18px; height: 18px; stroke: var(--sand); }
+    .rt-chip svg { width: 18px; height: 18px; stroke: var(--red); }
     .btn-red  { background: #D2234E; color: #fff; font-weight: 800; padding: 15px 34px; border-radius: 100px; display: inline-block; transition: transform .2s, box-shadow .2s; }
     .btn-red:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(210,35,78,0.45); }
-    .btn-ghost { background: transparent; color: #fff; font-weight: 700; padding: 13px 32px; border-radius: 100px; border: 2px solid rgba(255,255,255,0.5); display: inline-block; }
-    .btn-ghost:hover { border-color: #fff; }
+    .btn-ghost { background: rgba(255,255,255,0.6); color: var(--navy); font-weight: 700; padding: 13px 32px; border-radius: 100px; border: 2px solid rgba(44,59,73,0.35); display: inline-block; }
+    .btn-ghost:hover { border-color: var(--navy); }
     .rt-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
     /* ── Countdown ── */
     .countdown { display: flex; gap: 10px; margin-top: 44px; }
     .countdown__item {
-      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
+      background: #fff; border: 1px solid var(--line);
       border-radius: 14px; padding: 12px 16px; min-width: 76px; text-align: center;
-      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 16px rgba(44,59,73,0.08);
     }
-    .countdown__num { font-size: 1.6rem; font-weight: 800; color: #fff; line-height: 1; }
-    .countdown__label { font-size: 0.7rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: .1em; margin-top: 4px; }
+    .countdown__num { font-size: 1.6rem; font-weight: 800; color: var(--red); line-height: 1; }
+    .countdown__label { font-size: 0.7rem; color: #7b8894; text-transform: uppercase; letter-spacing: .1em; margin-top: 4px; }
 
     /* ── Section header ── */
     .eyebrow {
@@ -97,7 +97,7 @@
     .split__quote {
       margin-top: 28px; padding: 20px 24px; border-left: 3px solid var(--red);
       background: rgba(210,35,78,0.07); border-radius: 0 14px 14px 0;
-      color: #fff; font-weight: 600; font-size: 1.05rem;
+      color: var(--navy); font-weight: 600; font-size: 1.05rem;
     }
 
     /* ── Venn-Grafik Kraft × Mindset ── */
@@ -107,17 +107,18 @@
     /* ── Pillars ── */
     .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .pillar {
-      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09);
+      background: #fff; border: 1px solid var(--line);
       border-radius: 20px; padding: 32px 28px; position: relative; overflow: hidden;
-      transition: transform 0.3s var(--ease), border-color 0.3s, background 0.3s;
+      box-shadow: 0 4px 20px rgba(44,59,73,0.05);
+      transition: transform 0.3s var(--ease), border-color 0.3s, box-shadow 0.3s;
     }
-    .pillar:hover { transform: translateY(-4px); border-color: rgba(210,35,78,0.4); background: rgba(210,35,78,0.07); }
+    .pillar:hover { transform: translateY(-4px); border-color: rgba(210,35,78,0.35); box-shadow: 0 14px 40px rgba(44,59,73,0.1); }
     .pillar__icon {
       width: 52px; height: 52px; border-radius: 14px; margin-bottom: 20px;
-      background: linear-gradient(135deg, rgba(210,35,78,0.25), rgba(210,35,78,0.08));
+      background: rgba(210,35,78,0.08);
       display: flex; align-items: center; justify-content: center;
     }
-    .pillar__icon svg { width: 26px; height: 26px; stroke: #ff8fa8; }
+    .pillar__icon svg { width: 26px; height: 26px; stroke: var(--red); }
     .pillar__tag { font-size: 0.7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--sand); margin-bottom: 6px; }
     .pillar h3 { font-size: 1.1rem; margin-bottom: 10px; }
     .pillar p { font-size: 0.92rem; line-height: 1.65; }
@@ -126,19 +127,19 @@
     .rhythm { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; margin-top: 64px; }
     .rhythm::before {
       content: ''; position: absolute; top: 27px; left: 12.5%; right: 12.5%; height: 2px;
-      background: linear-gradient(90deg, var(--sand), var(--red), #7a5cff, var(--sea));
-      opacity: .6;
+      background: linear-gradient(90deg, #f2c48d, var(--red), #7a5cff, var(--sea));
+      opacity: .5;
     }
     .rhythm__step { text-align: center; padding: 0 12px; position: relative; }
     .rhythm__dot {
       width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 16px;
-      background: #0f1923; border: 2px solid rgba(255,255,255,0.2);
+      background: #fff; border: 2px solid var(--line); box-shadow: 0 4px 14px rgba(44,59,73,0.08);
       display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
     }
     .rhythm__time { font-size: 0.72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--sand); }
-    .rhythm__step h4 { color: #fff; font-size: 1rem; margin: 6px 0; }
+    .rhythm__step h4 { color: var(--navy); font-size: 1rem; margin: 6px 0; }
     .rhythm__step p { font-size: 0.85rem; line-height: 1.55; }
-    .rhythm-note { text-align: center; font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-top: 28px; }
+    .rhythm-note { text-align: center; font-size: 0.8rem; color: #8a96a1; margin-top: 28px; }
 
     /* ── Image band ── */
     .band {
@@ -154,37 +155,37 @@
     /* ── Team ── */
     .team-story { max-width: 720px; margin: 0 auto 56px; text-align: center; }
     .team-story p + p { margin-top: 14px; }
-    .team { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .team { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; max-width: 920px; margin: 0 auto; }
     .member {
-      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09);
-      border-radius: 20px; overflow: hidden; display: flex; flex-direction: column;
+      background: #fff; border: 1px solid var(--line);
+      border-radius: 24px; overflow: hidden; display: flex; flex-direction: column;
+      box-shadow: 0 8px 30px rgba(44,59,73,0.07);
     }
     .member__photo {
-      aspect-ratio: 1 / 1; background: linear-gradient(135deg, #2C3B49, #1a2535);
+      aspect-ratio: 4 / 3; background: linear-gradient(135deg, #eef2f5, #dfe5ea);
       display: flex; align-items: center; justify-content: center; position: relative;
     }
     .member__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
-    .member__initial { font-size: 3.2rem; font-weight: 800; color: rgba(255,255,255,0.18); }
-    .member__photo-note { position: absolute; bottom: 10px; font-size: 0.7rem; color: rgba(255,255,255,0.35); }
+    .member__initial { font-size: 4rem; font-weight: 800; color: rgba(44,59,73,0.15); }
+    .member__photo-note { position: absolute; bottom: 12px; font-size: 0.75rem; color: rgba(44,59,73,0.4); }
     .member__role {
-      position: absolute; top: 12px; left: 12px;
+      position: absolute; top: 14px; left: 14px;
       font-size: 0.68rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
-      padding: 5px 10px; border-radius: 100px; color: #fff;
+      padding: 5px 10px; border-radius: 100px; color: #fff; background: var(--red);
     }
-    .member__role--lead { background: var(--red); }
-    .member__role--care { background: rgba(255,255,255,0.18); backdrop-filter: blur(6px); }
-    .member__body { padding: 22px 22px 26px; }
-    .member__body h3 { font-size: 1.15rem; margin-bottom: 2px; }
-    .member__title { font-size: 0.8rem; font-weight: 700; color: var(--sand); margin-bottom: 12px; }
-    .member__body p { font-size: 0.87rem; line-height: 1.6; }
-    .member__stat { display: inline-block; margin-top: 14px; font-size: 0.78rem; font-weight: 700; color: #ff8fa8; background: rgba(210,35,78,0.12); padding: 5px 10px; border-radius: 8px; }
-    .insta { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 40px; }
+    .member__body { padding: 26px 28px 30px; }
+    .member__body h3 { font-size: 1.3rem; margin-bottom: 2px; }
+    .member__title { font-size: 0.85rem; font-weight: 700; color: var(--sand); margin-bottom: 14px; }
+    .member__body p { font-size: 0.93rem; line-height: 1.65; }
+    .member__stat { display: inline-block; margin-top: 16px; font-size: 0.78rem; font-weight: 700; color: var(--red-dark); background: rgba(210,35,78,0.08); padding: 5px 10px; border-radius: 8px; }
+    .insta-note { text-align: center; font-size: 0.9rem; margin-top: 48px; }
+    .insta { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
     .insta a {
-      display: inline-flex; align-items: center; gap: 8px; color: #fff; font-weight: 700; font-size: 0.9rem;
-      padding: 10px 18px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.2);
+      display: inline-flex; align-items: center; gap: 8px; color: var(--navy); font-weight: 700; font-size: 0.9rem;
+      padding: 10px 18px; border-radius: 100px; border: 1px solid var(--line); background: #fff;
       transition: border-color .2s, background .2s;
     }
-    .insta a:hover { border-color: var(--red); background: rgba(210,35,78,0.1); }
+    .insta a:hover { border-color: var(--red); background: rgba(210,35,78,0.05); }
     .insta svg { width: 18px; height: 18px; }
 
     /* ── Inklusive + Preis ── */
@@ -192,21 +193,21 @@
     .checklist { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .check {
       display: flex; gap: 12px; align-items: flex-start;
-      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      background: #fff; border: 1px solid var(--line);
       border-radius: 14px; padding: 14px 16px;
-      font-size: 0.9rem; color: rgba(255,255,255,0.85); line-height: 1.5;
+      font-size: 0.9rem; color: var(--navy); line-height: 1.5;
     }
     .check::before {
       content: '✓'; flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
       background: var(--red); color: #fff; font-size: 0.75rem; font-weight: 800;
       display: flex; align-items: center; justify-content: center; margin-top: 1px;
     }
-    .check--muted { color: rgba(255,255,255,0.55); }
-    .check--muted::before { content: '✈'; background: rgba(255,255,255,0.12); }
+    .check--muted { color: #7b8894; background: transparent; border-style: dashed; }
+    .check--muted::before { content: '✈'; background: #c3ccd4; }
     .price-card {
       background: linear-gradient(160deg, #D2234E 0%, #8f1636 100%);
       border-radius: 24px; padding: 40px 32px; text-align: center; position: sticky; top: 100px;
-      box-shadow: 0 24px 80px rgba(210,35,78,0.35);
+      box-shadow: 0 24px 60px rgba(210,35,78,0.25);
     }
     .price-card__label { font-size: 0.78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,0.75); }
     .price-card__num { font-size: 3.2rem; font-weight: 800; color: #fff; line-height: 1.1; margin: 10px 0 2px; }
@@ -224,50 +225,50 @@
 
     /* ── Timeline Buchung ── */
     .timeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; margin-top: 8px; }
-    .timeline::before { content: ''; position: absolute; top: 9px; left: 10%; right: 10%; height: 2px; background: rgba(255,255,255,0.15); }
+    .timeline::before { content: ''; position: absolute; top: 9px; left: 10%; right: 10%; height: 2px; background: var(--line); }
     .tl { text-align: center; padding: 0 10px; position: relative; }
-    .tl__dot { width: 20px; height: 20px; border-radius: 50%; background: #0f1923; border: 3px solid var(--red); margin: 0 auto 14px; }
-    .tl--green .tl__dot { border-color: #3ecf8e; }
+    .tl__dot { width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 3px solid var(--red); margin: 0 auto 14px; }
+    .tl--green .tl__dot { border-color: #1fa86b; }
     .tl--final .tl__dot { background: var(--red); }
     .tl__date { font-size: 0.78rem; font-weight: 800; color: var(--sand); letter-spacing: .04em; }
-    .tl h4 { color: #fff; font-size: 0.95rem; margin: 4px 0; }
+    .tl h4 { color: var(--navy); font-size: 0.95rem; margin: 4px 0; }
     .tl p { font-size: 0.8rem; line-height: 1.5; }
 
     /* ── Spots ── */
     .spots-bar {
-      background: rgba(210,35,78,0.1); border: 1px solid rgba(210,35,78,0.25);
+      background: rgba(210,35,78,0.05); border: 1px solid rgba(210,35,78,0.2);
       border-radius: 16px; padding: 20px 28px; margin-top: 56px;
       display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
     }
-    .spots-bar__text { font-weight: 700; color: #fff; }
-    .spots-bar__label { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+    .spots-bar__text { font-weight: 700; color: var(--navy); }
+    .spots-bar__label { font-size: 0.85rem; color: #7b8894; }
     .spots-bar__dots { display: flex; gap: 8px; }
-    .spot-dot { width: 14px; height: 14px; border-radius: 50%; background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.35); }
+    .spot-dot { width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 2px solid rgba(210,35,78,0.45); }
 
     /* ── FAQ ── */
-    .faq-item { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 20px 0; }
+    .faq-item { border-bottom: 1px solid var(--line); padding: 20px 0; }
     .faq-item__q {
-      font-weight: 700; color: #fff; font-size: 1rem; cursor: pointer;
+      font-weight: 700; color: var(--navy); font-size: 1rem; cursor: pointer;
       display: flex; justify-content: space-between; align-items: center; gap: 16px;
       background: none; border: none; width: 100%; text-align: left; padding: 0; font-family: inherit;
     }
     .faq-item__q::after { content: '+'; font-size: 1.4rem; color: var(--red); flex-shrink: 0; transition: transform 0.3s; }
     .faq-item__q.open::after { transform: rotate(45deg); }
-    .faq-item__a { font-size: 0.95rem; color: rgba(255,255,255,0.65); line-height: 1.7; max-height: 0; overflow: hidden; transition: max-height 0.4s var(--ease), padding 0.3s; }
+    .faq-item__a { font-size: 0.95rem; color: var(--text); line-height: 1.7; max-height: 0; overflow: hidden; transition: max-height 0.4s var(--ease), padding 0.3s; }
     .faq-item__a.open { max-height: 400px; padding-top: 12px; }
-    .faq-item__a a { color: #ff8fa8; }
+    .faq-item__a a { color: var(--red); }
 
     /* ── Final CTA ── */
     .final {
       position: relative; padding: 120px 0; text-align: center; overflow: hidden;
-      background: linear-gradient(135deg, var(--navy) 0%, #1a2a3a 100%);
+      background: var(--soft);
     }
-    .final::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 120%, rgba(210,35,78,0.35) 0%, transparent 60%); }
+    .final::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 130%, rgba(210,35,78,0.14) 0%, transparent 60%); }
     .final .container { position: relative; max-width: 680px; }
     .final h2 { font-size: clamp(2rem, 4.5vw, 3rem); margin-bottom: 16px; }
     .final p { margin-bottom: 32px; }
-    .final__note { font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-top: 24px; margin-bottom: 0 !important; }
-    .final__note a { color: #ff8fa8; }
+    .final__note { font-size: 0.8rem; color: #8a96a1 !important; margin-top: 24px; margin-bottom: 0 !important; }
+    .final__note a { color: var(--red); }
 
     /* ── Draft-Hinweis ── */
     .draft-flag {
@@ -304,17 +305,14 @@
       .spot-dot { width: 12px; height: 12px; }
     }
 
-    /* ── Globales dunkles Theme (muss zuletzt stehen) ── */
-    body { background: #0f1923; color: white; }
-    p { color: rgba(255,255,255,0.72); }
-    h2, h3 { color: white; }
-    .trust-bar { background: #1a2535; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .trust-item { color: white; }
-    .trust-item__icon { background: rgba(210,35,78,0.2); }
-    .section--gray { background: #141f2b; }
-    .nav.scrolled { background: rgba(15,25,35,0.92); box-shadow: 0 1px 0 rgba(255,255,255,0.08); }
-    .nav.scrolled .nav__logo, .nav.scrolled .nav__links a:not(.nav__cta) { color: #fff; }
-    .nav.scrolled .nav__hamburger span { background: #fff; }
+    /* ── Helles Theme (muss zuletzt stehen) ── */
+    body { background: #fff; color: var(--navy); }
+    p { color: var(--text); }
+    h2, h3 { color: var(--navy); }
+    .trust-bar { background: var(--soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .section--gray { background: var(--soft); }
+    .nav .nav__logo, .nav .nav__links a:not(.nav__cta) { color: var(--navy); }
+    .nav .nav__hamburger span { background: var(--navy); }
   </style>
 </head>
 <body>
@@ -416,22 +414,22 @@
       <div class="fade-up fade-up-delay-2">
         <svg class="venn" viewBox="0 0 460 380" role="img" aria-label="Kraft (Körper, mit Katrin) und Mindset (Geist, mit Manuel) überschneiden sich in dir">
           <defs>
-            <radialGradient id="gK" cx="35%" cy="40%"><stop offset="0%" stop-color="#D2234E" stop-opacity=".55"/><stop offset="100%" stop-color="#D2234E" stop-opacity=".12"/></radialGradient>
-            <radialGradient id="gM" cx="65%" cy="40%"><stop offset="0%" stop-color="#4fb3c8" stop-opacity=".5"/><stop offset="100%" stop-color="#4fb3c8" stop-opacity=".1"/></radialGradient>
+            <radialGradient id="gK" cx="35%" cy="40%"><stop offset="0%" stop-color="#D2234E" stop-opacity=".22"/><stop offset="100%" stop-color="#D2234E" stop-opacity=".05"/></radialGradient>
+            <radialGradient id="gM" cx="65%" cy="40%"><stop offset="0%" stop-color="#4fb3c8" stop-opacity=".3"/><stop offset="100%" stop-color="#4fb3c8" stop-opacity=".06"/></radialGradient>
           </defs>
-          <circle cx="165" cy="175" r="135" fill="url(#gK)" stroke="#D2234E" stroke-opacity=".6" stroke-width="1.5"/>
-          <circle cx="295" cy="175" r="135" fill="url(#gM)" stroke="#4fb3c8" stroke-opacity=".6" stroke-width="1.5"/>
-          <text x="105" y="150" fill="#fff" font-size="26" font-weight="800" text-anchor="middle">Kraft</text>
-          <text x="105" y="176" fill="rgba(255,255,255,.65)" font-size="13" text-anchor="middle">Körper &amp; Bewegung</text>
-          <text x="105" y="196" fill="rgba(255,255,255,.65)" font-size="13" text-anchor="middle">Ernährung</text>
-          <text x="105" y="232" fill="#ff8fa8" font-size="12" font-weight="700" text-anchor="middle">mit Katrin</text>
-          <text x="355" y="150" fill="#fff" font-size="26" font-weight="800" text-anchor="middle">Mindset</text>
-          <text x="355" y="176" fill="rgba(255,255,255,.65)" font-size="13" text-anchor="middle">Mentaltraining</text>
-          <text x="355" y="196" fill="rgba(255,255,255,.65)" font-size="13" text-anchor="middle">Tiefenentspannung</text>
-          <text x="355" y="232" fill="#8fd8e8" font-size="12" font-weight="700" text-anchor="middle">mit Manuel</text>
-          <circle cx="230" cy="175" r="34" fill="#0f1923" stroke="#f2c48d" stroke-width="2"/>
-          <text x="230" y="182" fill="#f2c48d" font-size="20" font-weight="800" text-anchor="middle">Du</text>
-          <text x="230" y="350" fill="rgba(255,255,255,.5)" font-size="13" text-anchor="middle">Körper und innere Prozesse – in einer gemeinsamen Begleitung</text>
+          <circle cx="165" cy="175" r="135" fill="url(#gK)" stroke="#D2234E" stroke-opacity=".5" stroke-width="1.5"/>
+          <circle cx="295" cy="175" r="135" fill="url(#gM)" stroke="#2a8ea3" stroke-opacity=".5" stroke-width="1.5"/>
+          <text x="105" y="150" fill="#2C3B49" font-size="26" font-weight="800" text-anchor="middle">Kraft</text>
+          <text x="105" y="176" fill="#4a5a69" font-size="13" text-anchor="middle">Körper &amp; Bewegung</text>
+          <text x="105" y="196" fill="#4a5a69" font-size="13" text-anchor="middle">Ernährung</text>
+          <text x="105" y="232" fill="#b01c3f" font-size="12" font-weight="700" text-anchor="middle">mit Katrin</text>
+          <text x="355" y="150" fill="#2C3B49" font-size="26" font-weight="800" text-anchor="middle">Mindset</text>
+          <text x="355" y="176" fill="#4a5a69" font-size="13" text-anchor="middle">Mentaltraining</text>
+          <text x="355" y="196" fill="#4a5a69" font-size="13" text-anchor="middle">Tiefenentspannung</text>
+          <text x="355" y="232" fill="#1f6f80" font-size="12" font-weight="700" text-anchor="middle">mit Manuel</text>
+          <circle cx="230" cy="175" r="34" fill="#fff" stroke="#D2234E" stroke-width="2"/>
+          <text x="230" y="182" fill="#D2234E" font-size="20" font-weight="800" text-anchor="middle">Du</text>
+          <text x="230" y="350" fill="#7b8894" font-size="13" text-anchor="middle">Körper und innere Prozesse – in einer gemeinsamen Begleitung</text>
         </svg>
       </div>
     </div>
@@ -530,13 +528,13 @@
 <section class="section" id="team">
   <div class="container">
     <div class="team-story">
-      <span class="eyebrow fade-up">Die Menschen hinter deiner Woche</span>
-      <h2 class="fade-up">Zwei Familien. <span class="grad">Gelebte Erfahrung.</span></h2>
+      <span class="eyebrow fade-up">Deine fachliche Leitung</span>
+      <h2 class="fade-up">Zwei Blickwinkel. <span class="grad">Eine Begleitung.</span></h2>
       <p class="fade-up fade-up-delay-1">
-        Seit über zehn Jahren gestalten wir unser Leben bewusst und selbstbestimmt. Wir gehen eigene Wege, hinterfragen gewohnte Vorstellungen und sehen Herausforderungen als Chance, uns weiterzuentwickeln.
+        Katrin setzt beim Körper an, Manuel bei den inneren Prozessen. Beide bringen einen eigenständigen fachlichen Hintergrund mit – und gerade ihre unterschiedlichen Blickwinkel machen die Zusammenarbeit aus.
       </p>
       <p class="fade-up fade-up-delay-1">
-        Was wir in dieser Woche mit dir teilen, ist gelebte Erfahrung – und Raum, deine eigenen Vorstellungen von Stärke, Freiheit und einem erfüllten Leben zu erkunden.
+        Im Retreat verbinden sie diese Zugänge zu einer gemeinsamen Begleitung, die körperliche und persönliche Entwicklung zusammenbringt.
       </p>
     </div>
 
@@ -544,7 +542,7 @@
       <article class="member fade-up">
         <div class="member__photo">
           <img src="images/katrin.jpg" alt="Katrin">
-          <span class="member__role member__role--lead">Fachliche Leitung</span>
+          <span class="member__role">Fachliche Leitung</span>
         </div>
         <div class="member__body">
           <h3>Katrin</h3>
@@ -557,41 +555,18 @@
         <div class="member__photo">
           <span class="member__initial">M</span>
           <span class="member__photo-note">Foto folgt</span>
-          <span class="member__role member__role--lead">Fachliche Leitung</span>
+          <span class="member__role">Fachliche Leitung</span>
         </div>
         <div class="member__body">
           <h3>Manuel</h3>
           <div class="member__title">Mentaltrainer &amp; Tiefentherapeut</div>
-          <p>Begleitet Menschen dabei, alte Verhaltensmuster zu erkennen und aufzulösen, innere Kraft zu entfalten und mentale Stärke aufzubauen.</p>
+          <p>Begleitet Menschen dabei, alte Verhaltensmuster zu erkennen und aufzulösen. Er unterstützt darin, die innere Kraft zu entfalten und mentale Stärke aufzubauen.</p>
           <span class="member__stat">20 Jahre Erfahrung</span>
-        </div>
-      </article>
-      <article class="member fade-up fade-up-delay-2">
-        <div class="member__photo">
-          <span class="member__initial">M</span>
-          <span class="member__photo-note">Foto folgt</span>
-          <span class="member__role member__role--care">Organisation &amp; Betreuung</span>
-        </div>
-        <div class="member__body">
-          <h3>Mary</h3>
-          <div class="member__title">Integral Coach &amp; Ernährungscoach</div>
-          <p>Leitete acht Jahre eine eigene Kinderspielgruppe mit sieben Mitarbeitenden. Im Retreat kümmert sie sich um Organisation und das Wohl der Gäste.</p>
-        </div>
-      </article>
-      <article class="member fade-up fade-up-delay-3">
-        <div class="member__photo">
-          <span class="member__initial">S</span>
-          <span class="member__photo-note">Foto folgt</span>
-          <span class="member__role member__role--care">Organisation &amp; Betreuung</span>
-        </div>
-        <div class="member__body">
-          <h3>Stefan</h3>
-          <div class="member__title">Der Macher im Hintergrund</div>
-          <p>Denkt mit, packt an und sorgt mit technischem und praktischem Geschick dafür, dass alles reibungslos läuft – herzlich und weltoffen.</p>
         </div>
       </article>
     </div>
 
+    <p class="insta-note fade-up">Einblicke in den Alltag und die Reisen findest du auf Instagram:</p>
     <div class="insta fade-up">
       <a href="https://www.instagram.com/familieaufweltreise/" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
