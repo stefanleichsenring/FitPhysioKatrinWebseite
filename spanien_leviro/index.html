@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kraft &amp; Mindset – Vitality Retreat in Südspanien | Leviro</title>
-  <meta name="description" content="6.–13. März 2027 in Südspanien. Eine Woche Fitness, Mentaltraining, Meditation und gesunde Ernährung in einer Villa am Meer. Nur 10 Plätze.">
-  <!-- Entwurf – noch nicht indexieren -->
+  <meta name="description" content="6.–13. März 2027 in Südspanien. Eine Woche Fitness, Mentaltraining, Meditation und gesunde Ernährung in einer Villa am Meer. Nur noch 4 von 10 Plätzen frei.">
+  <!-- Kopie von /spanien – nicht indexieren (Duplicate Content) -->
   <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://fitphysiokatrin.com/spanien_leviro">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Kraft & Mindset – Vitality Retreat in Südspanien">
-  <meta property="og:description" content="6.–13. März 2027 · Südspanien · Nur 10 Plätze · Villa am Meer">
+  <meta property="og:description" content="6.–13. März 2027 · Südspanien · Nur noch 4 Plätze frei · Villa am Meer">
   <meta property="og:url" content="https://fitphysiokatrin.com/spanien_leviro">
   <meta property="og:image" content="https://fitphysiokatrin.com/spanien_leviro/images/terrasse.jpg">
 
@@ -222,6 +222,9 @@
     }
     .price-card .btn-white:hover { transform: translateY(-2px); }
     .price-card__safe { font-size: 0.8rem; color: rgba(255,255,255,0.75); margin-top: 14px; }
+    .price-card__partner { display: flex; gap: 10px; align-items: flex-start; text-align: left; margin-top: 18px; padding: 12px 14px; border-radius: 12px; background: rgba(255,255,255,0.12); font-size: 0.8rem; line-height: 1.45; color: rgba(255,255,255,0.9); }
+    .price-card__partner svg { width: 16px; height: 16px; flex: none; margin-top: 2px; }
+    .price-card__partner strong { color: #fff; }
 
     /* ── Timeline Buchung ── */
     .timeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; margin-top: 8px; }
@@ -244,6 +247,7 @@
     .spots-bar__label { font-size: 0.85rem; color: #8a8080; }
     .spots-bar__dots { display: flex; gap: 8px; }
     .spot-dot { width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 2px solid rgba(133,180,64,0.45); }
+    .spot-dot--taken { background: var(--red); border-color: var(--red); }
 
     /* ── FAQ ── */
     .faq-item { border-bottom: 1px solid var(--line); padding: 20px 0; }
@@ -269,14 +273,6 @@
     .final p { margin-bottom: 32px; }
     .final__note { font-size: 0.8rem; color: #948a8a !important; margin-top: 24px; margin-bottom: 0 !important; }
     .final__note a { color: var(--red); }
-
-    /* ── Draft-Hinweis ── */
-    .draft-flag {
-      position: fixed; bottom: 16px; left: 16px; z-index: 200;
-      background: #D9C9B4; color: #4A2C35; font-size: 0.72rem; font-weight: 800;
-      letter-spacing: .1em; text-transform: uppercase; padding: 7px 12px; border-radius: 8px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-    }
 
     /* ── Responsive ── */
     @media (max-width: 1000px) {
@@ -338,7 +334,6 @@
 </head>
 <body>
 
-<div class="draft-flag">Entwurf</div>
 
 <!-- ── NAV ── -->
 <nav class="nav" aria-label="Hauptnavigation">
@@ -386,7 +381,7 @@
       </span>
       <span class="rt-chip">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2M16 3.1a4 4 0 0 1 0 7.8M22 21v-2a4 4 0 0 0-3-3.9"/></svg>
-        Nur 10 Plätze
+        Nur noch 4 Plätze frei
       </span>
     </div>
     <div class="rt-actions fade-up fade-up-delay-3">
@@ -635,6 +630,10 @@
         <div class="price-card__line"><span>Kostenlos stornierbar bis</span><strong>6. Jan. 2027</strong></div>
         <a href="https://leviro.ch/anmeldung-kraft-mindset/" class="btn-white">Jetzt Platz sichern →</a>
         <div class="price-card__safe">Sichere dir deinen Platz und entscheide in Ruhe.</div>
+        <div class="price-card__partner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+          <span>Anmeldung &amp; Bezahlung laufen sicher und direkt über <strong>Leviro</strong> – wir veranstalten das Retreat gemeinsam mit Fit.Physio.Katrin.</span>
+        </div>
       </aside>
     </div>
 
@@ -642,6 +641,7 @@
     <div class="sec-head" style="margin-top:96px;margin-bottom:40px;">
       <span class="eyebrow fade-up">Ohne Risiko</span>
       <h2 class="fade-up" style="font-size:clamp(1.5rem,3vw,2rem);">So läuft deine Buchung</h2>
+      <p class="fade-up fade-up-delay-1">Die Anmeldung und Bezahlung läuft direkt über <a href="https://leviro.ch" target="_blank" rel="noopener">Leviro</a>. Mit Klick auf „Platz sichern“ landest du direkt im Anmeldeformular auf leviro.ch.</p>
     </div>
     <div class="timeline fade-up">
       <div class="tl">
@@ -678,12 +678,12 @@
 
     <div class="spots-bar fade-up">
       <div>
-        <div class="spots-bar__text">Bewusst kleine Gruppe</div>
-        <div class="spots-bar__label">Maximal 10 Teilnehmende · First come, first serve</div>
+        <div class="spots-bar__text">Nur noch 4 von 10 Plätzen frei</div>
+        <div class="spots-bar__label">Bewusst kleine Gruppe · 6 Plätze bereits vergeben · First come, first serve</div>
       </div>
-      <div class="spots-bar__dots" aria-label="10 Plätze">
-        <span class="spot-dot"></span><span class="spot-dot"></span><span class="spot-dot"></span><span class="spot-dot"></span><span class="spot-dot"></span>
-        <span class="spot-dot"></span><span class="spot-dot"></span><span class="spot-dot"></span><span class="spot-dot"></span><span class="spot-dot"></span>
+      <div class="spots-bar__dots" aria-label="6 von 10 Plätzen vergeben, 4 frei">
+        <span class="spot-dot spot-dot--taken"></span><span class="spot-dot spot-dot--taken"></span><span class="spot-dot spot-dot--taken"></span><span class="spot-dot spot-dot--taken"></span><span class="spot-dot spot-dot--taken"></span>
+        <span class="spot-dot spot-dot--taken"></span><span class="spot-dot"></span><span class="spot-dot"></span><span class="spot-dot"></span><span class="spot-dot"></span>
       </div>
     </div>
   </div>
@@ -714,6 +714,10 @@
         <div class="faq-item__a">Sieben Übernachtungen in der Villa, alle Mahlzeiten und alkoholfreien Getränke, das gesamte Fitness- und Mentalprogramm, Meditationen, Tiefenentspannung, persönliches Coaching bzw. Tiefentherapie-Sitzung, gemeinsame Ausflüge sowie Flughafen-Transfers.</div>
       </div>
       <div class="faq-item">
+        <button class="faq-item__q">Warum melde ich mich über Leviro an?</button>
+        <div class="faq-item__a">Leviro veranstaltet das Retreat gemeinsam mit Fit.Physio.Katrin. Anmeldung und Bezahlung laufen gesammelt und sicher über Leviro – so hast du einen festen Ansprechpartner für alles Organisatorische, während wir uns ganz auf deine Woche konzentrieren.</div>
+      </div>
+      <div class="faq-item">
         <button class="faq-item__q">Wie funktioniert die Zahlung?</button>
         <div class="faq-item__a">Die Anzahlung von € 500 bzw. CHF 450 ist innerhalb von sieben Kalendertagen nach der Buchung fällig und wird angerechnet. Der Restbetrag ist spätestens 35 Tage vor Retreat-Beginn fällig. Bei späteren Buchungen ist der Gesamtbetrag sofort fällig.</div>
       </div>
@@ -730,7 +734,7 @@
   <div class="container">
     <span class="eyebrow fade-up">6.–13. März 2027 · Südspanien</span>
     <h2 class="fade-up">Bereit für deine Woche?</h2>
-    <p class="fade-up fade-up-delay-1">Nur zehn Plätze. Sichere dir deinen jetzt – bis zum 6. Januar kostenlos stornierbar.</p>
+    <p class="fade-up fade-up-delay-1">Nur noch vier von zehn Plätzen frei. Sichere dir deinen jetzt – bis zum 6. Januar kostenlos stornierbar.</p>
     <a href="https://leviro.ch/anmeldung-kraft-mindset/" class="btn-red fade-up fade-up-delay-2">Jetzt Platz sichern →</a>
     <p class="final__note">Ein Retreat von Leviro &amp; <a href="https://fitphysiokatrin.com/6am/" target="_blank" rel="noopener">Fit.Physio.Katrin</a> · Es gelten die <a href="https://leviro.ch/agb/" target="_blank" rel="noopener">AGB</a>.</p>
   </div>
