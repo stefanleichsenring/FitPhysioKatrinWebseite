@@ -858,16 +858,20 @@
     try { closed = sessionStorage.getItem('nudgeClosed') === '1'; } catch (e) {}
     if (closed) return;
 
+    // Jeder Text einmal je 9 Sekunden, danach verschwindet die Bubble von selbst
     var i = 0, timer;
     show(0);
     setTimeout(function () {
       nudge.classList.add('is-visible');
-      if (msgs.length > 1) {
-        timer = setInterval(function () {
-          text.classList.add('is-fading');
-          setTimeout(function () { i = (i + 1) % msgs.length; show(i); text.classList.remove('is-fading'); }, 300);
-        }, 9000);
-      }
+      timer = setInterval(function () {
+        if (i === msgs.length - 1) {
+          clearInterval(timer);
+          nudge.classList.remove('is-visible');
+          return;
+        }
+        text.classList.add('is-fading');
+        setTimeout(function () { i += 1; show(i); text.classList.remove('is-fading'); }, 300);
+      }, 9000);
     }, 6000);
 
     document.getElementById('nudgeClose').addEventListener('click', function () {
