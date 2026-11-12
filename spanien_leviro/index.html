@@ -301,6 +301,65 @@
       .spot-dot { width: 12px; height: 12px; }
     }
 
+    /* ── Hinweis-Bubble (unten links) ── */
+    .nudge {
+      position: fixed; left: 20px; bottom: 20px; z-index: 90; max-width: 340px;
+      display: flex; align-items: center; gap: 12px; padding: 12px 38px 12px 12px;
+      background: #fff; border: 1px solid var(--line); border-radius: 16px;
+      box-shadow: 0 12px 36px rgba(74,44,53,0.16);
+      opacity: 0; transform: translateY(16px); pointer-events: none;
+      transition: opacity .45s var(--ease, ease), transform .45s var(--ease, ease);
+    }
+    .nudge.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+    .nudge__icon {
+      flex: none; width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center;
+      background: rgba(133,180,64,0.1); color: var(--red);
+    }
+    .nudge__icon svg { width: 20px; height: 20px; }
+    .nudge__link { display: block; color: inherit; text-decoration: none; }
+    .nudge__text { transition: opacity .3s; }
+    .nudge__text.is-fading { opacity: 0; }
+    .nudge__title { font-size: 0.9rem; font-weight: 800; color: var(--navy); line-height: 1.3; }
+    .nudge__sub { font-size: 0.8rem; color: var(--text); line-height: 1.35; margin-top: 2px; }
+    .nudge__close {
+      position: absolute; top: 6px; right: 6px; width: 26px; height: 26px; border: 0; border-radius: 50%;
+      background: transparent; color: #8a8080; font-size: 1.1rem; line-height: 1; cursor: pointer;
+    }
+    .nudge__close:hover { background: var(--soft); }
+
+    /* ── WhatsApp-Button (unten rechts) ── */
+    .wa-float {
+      position: fixed; right: 20px; bottom: 20px; z-index: 91;
+      display: flex; align-items: center; gap: 10px; text-decoration: none;
+      opacity: 0; transform: translateY(16px) scale(.9); pointer-events: none;
+      transition: opacity .45s var(--ease, ease), transform .45s var(--ease, ease);
+    }
+    .wa-float.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+    .wa-float__label {
+      background: #fff; color: var(--navy); font-size: 0.85rem; font-weight: 700;
+      padding: 9px 14px; border-radius: 100px; box-shadow: 0 8px 24px rgba(74,44,53,0.16);
+      white-space: nowrap; transition: opacity .4s, transform .4s;
+    }
+    .wa-float__btn {
+      width: 56px; height: 56px; border-radius: 50%; background: #25D366; color: #fff;
+      display: grid; place-items: center; box-shadow: 0 10px 28px rgba(37,211,102,0.4);
+      transition: transform .2s;
+    }
+    .wa-float:hover .wa-float__btn { transform: scale(1.06); }
+    .wa-float__btn svg { width: 30px; height: 30px; }
+
+    @media (max-width: 600px) {
+      .nudge { left: 12px; bottom: 12px; max-width: calc(100vw - 92px); padding: 10px 32px 10px 10px; gap: 10px; }
+      .nudge__icon { width: 34px; height: 34px; border-radius: 10px; }
+      .nudge__title { font-size: 0.82rem; }
+      .nudge__sub { font-size: 0.74rem; }
+      .wa-float { right: 12px; bottom: 12px; }
+      .wa-float__btn { width: 52px; height: 52px; }
+      /* Label auf dem Handy nur kurz zeigen, dann nur das Icon */
+      .wa-float__label { position: absolute; right: 0; bottom: 64px; }
+      .wa-float.label-hidden .wa-float__label { opacity: 0; transform: translateY(6px); pointer-events: none; }
+    }
+
     /* ── Helles Theme (muss zuletzt stehen) ── */
     body { background: #fff; color: var(--navy); }
     p { color: var(--text); }
@@ -755,6 +814,70 @@
     </div>
   </div>
 </footer>
+
+<!-- ── Hinweis-Bubble & WhatsApp ── -->
+<div class="nudge" id="nudge" role="status" aria-live="polite">
+  <div class="nudge__icon" id="nudgeIcon" aria-hidden="true"></div>
+  <a class="nudge__link" href="#leistungen">
+    <div class="nudge__text" id="nudgeText">
+      <div class="nudge__title"></div>
+      <div class="nudge__sub"></div>
+    </div>
+  </a>
+  <button class="nudge__close" id="nudgeClose" aria-label="Hinweis schließen">×</button>
+</div>
+
+<script>
+  // Bubble: zwei Hinweise im Wechsel; der Storno-Hinweis zählt bis 6. Januar 2027 herunter
+  (function () {
+    var nudge = document.getElementById('nudge');
+    if (!nudge) return;
+    var text = document.getElementById('nudgeText');
+    var icon = document.getElementById('nudgeIcon');
+    var ICON_BOLT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>';
+    var ICON_SHIELD = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>';
+
+    var msgs = [{ icon: ICON_BOLT, title: 'Die erste FitWeek war in 7 Tagen ausgebucht', sub: 'Diesmal gibt es nur 10 Plätze.' }];
+    var deadline = new Date('2027-01-07T00:00:00+01:00');
+    var days = Math.ceil((deadline - new Date()) / 86400000);
+    if (days > 0) {
+      msgs.push({
+        icon: ICON_SHIELD,
+        title: days === 1 ? 'Heute letzter Tag kostenlos stornierbar' : 'Noch ' + days + ' Tage kostenlos stornierbar',
+        sub: 'Sichere dir deinen Platz ohne Risiko.'
+      });
+    }
+
+    function show(i) {
+      icon.innerHTML = msgs[i].icon;
+      text.querySelector('.nudge__title').textContent = msgs[i].title;
+      text.querySelector('.nudge__sub').textContent = msgs[i].sub;
+    }
+
+    var closed = false;
+    try { closed = sessionStorage.getItem('nudgeClosed') === '1'; } catch (e) {}
+    if (closed) return;
+
+    var i = 0, timer;
+    show(0);
+    setTimeout(function () {
+      nudge.classList.add('is-visible');
+      if (msgs.length > 1) {
+        timer = setInterval(function () {
+          text.classList.add('is-fading');
+          setTimeout(function () { i = (i + 1) % msgs.length; show(i); text.classList.remove('is-fading'); }, 300);
+        }, 9000);
+      }
+    }, 6000);
+
+    document.getElementById('nudgeClose').addEventListener('click', function () {
+      nudge.classList.remove('is-visible');
+      clearInterval(timer);
+      try { sessionStorage.setItem('nudgeClosed', '1'); } catch (e) {}
+    });
+  })();
+
+</script>
 
 <script src="../assets/js/script.js" defer></script>
 <script>

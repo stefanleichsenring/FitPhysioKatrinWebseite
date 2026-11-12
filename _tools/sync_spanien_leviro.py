@@ -88,6 +88,12 @@ def to_leviro(h):
         sys.exit("FEHLER: Team-Karten nicht gefunden")
     h = h.replace(t.group(0), t.group(1) + t.group(2) + t.group(6) + t.group(4) + t.group(5) + t.group(3))
 
+    # ── Kein WhatsApp-Button: nur die FPK-Community schreibt Katrin ──
+    h = rep(h, r'<a class="wa-float".*?</a>\n\n', "", regex=True)
+    h = rep(h, r'  // WhatsApp-Button:.*?\}\)\(\);\n', "", regex=True)
+    if "wa.me" in h or 'id="waFloat"' in h:
+        sys.exit("FEHLER: WhatsApp-Reste in der Leviro-Version")
+
     # ── Leviro-Hinweise aus Leviro-Sicht formulieren ──
     h = h.replace("Anmeldung &amp; Bezahlung laufen sicher über unseren Vertrauenspartner <strong>Leviro</strong>, mit dem wir das Retreat gemeinsam veranstalten.",
             "Anmeldung &amp; Bezahlung laufen sicher und direkt über <strong>Leviro</strong> – wir veranstalten das Retreat gemeinsam mit Fit.Physio.Katrin.")

@@ -299,6 +299,65 @@
       .spot-dot { width: 12px; height: 12px; }
     }
 
+    /* ── Hinweis-Bubble (unten links) ── */
+    .nudge {
+      position: fixed; left: 20px; bottom: 20px; z-index: 90; max-width: 340px;
+      display: flex; align-items: center; gap: 12px; padding: 12px 38px 12px 12px;
+      background: #fff; border: 1px solid var(--line); border-radius: 16px;
+      box-shadow: 0 12px 36px rgba(44,59,73,0.16);
+      opacity: 0; transform: translateY(16px); pointer-events: none;
+      transition: opacity .45s var(--ease, ease), transform .45s var(--ease, ease);
+    }
+    .nudge.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+    .nudge__icon {
+      flex: none; width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center;
+      background: rgba(210,35,78,0.1); color: var(--red);
+    }
+    .nudge__icon svg { width: 20px; height: 20px; }
+    .nudge__link { display: block; color: inherit; text-decoration: none; }
+    .nudge__text { transition: opacity .3s; }
+    .nudge__text.is-fading { opacity: 0; }
+    .nudge__title { font-size: 0.9rem; font-weight: 800; color: var(--navy); line-height: 1.3; }
+    .nudge__sub { font-size: 0.8rem; color: var(--text); line-height: 1.35; margin-top: 2px; }
+    .nudge__close {
+      position: absolute; top: 6px; right: 6px; width: 26px; height: 26px; border: 0; border-radius: 50%;
+      background: transparent; color: #7b8894; font-size: 1.1rem; line-height: 1; cursor: pointer;
+    }
+    .nudge__close:hover { background: var(--soft); }
+
+    /* ── WhatsApp-Button (unten rechts) ── */
+    .wa-float {
+      position: fixed; right: 20px; bottom: 20px; z-index: 91;
+      display: flex; align-items: center; gap: 10px; text-decoration: none;
+      opacity: 0; transform: translateY(16px) scale(.9); pointer-events: none;
+      transition: opacity .45s var(--ease, ease), transform .45s var(--ease, ease);
+    }
+    .wa-float.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+    .wa-float__label {
+      background: #fff; color: var(--navy); font-size: 0.85rem; font-weight: 700;
+      padding: 9px 14px; border-radius: 100px; box-shadow: 0 8px 24px rgba(44,59,73,0.16);
+      white-space: nowrap; transition: opacity .4s, transform .4s;
+    }
+    .wa-float__btn {
+      width: 56px; height: 56px; border-radius: 50%; background: #25D366; color: #fff;
+      display: grid; place-items: center; box-shadow: 0 10px 28px rgba(37,211,102,0.4);
+      transition: transform .2s;
+    }
+    .wa-float:hover .wa-float__btn { transform: scale(1.06); }
+    .wa-float__btn svg { width: 30px; height: 30px; }
+
+    @media (max-width: 600px) {
+      .nudge { left: 12px; bottom: 12px; max-width: calc(100vw - 92px); padding: 10px 32px 10px 10px; gap: 10px; }
+      .nudge__icon { width: 34px; height: 34px; border-radius: 10px; }
+      .nudge__title { font-size: 0.82rem; }
+      .nudge__sub { font-size: 0.74rem; }
+      .wa-float { right: 12px; bottom: 12px; }
+      .wa-float__btn { width: 52px; height: 52px; }
+      /* Label auf dem Handy nur kurz zeigen, dann nur das Icon */
+      .wa-float__label { position: absolute; right: 0; bottom: 64px; }
+      .wa-float.label-hidden .wa-float__label { opacity: 0; transform: translateY(6px); pointer-events: none; }
+    }
+
     /* ── Helles Theme (muss zuletzt stehen) ── */
     body { background: #fff; color: var(--navy); }
     p { color: var(--text); }
@@ -732,6 +791,86 @@
     </div>
   </div>
 </footer>
+
+<!-- ── Hinweis-Bubble & WhatsApp ── -->
+<div class="nudge" id="nudge" role="status" aria-live="polite">
+  <div class="nudge__icon" id="nudgeIcon" aria-hidden="true"></div>
+  <a class="nudge__link" href="#leistungen">
+    <div class="nudge__text" id="nudgeText">
+      <div class="nudge__title"></div>
+      <div class="nudge__sub"></div>
+    </div>
+  </a>
+  <button class="nudge__close" id="nudgeClose" aria-label="Hinweis schließen">×</button>
+</div>
+
+<a class="wa-float" id="waFloat" href="https://wa.me/4915146454151?text=Hallo%20Katrin%2C%20ich%20interessiere%20mich%20f%C3%BCr%20das%20Retreat%20Kraft%20%26%20Mindset%20in%20S%C3%BCdspanien." target="_blank" rel="noopener" aria-label="Schreib Katrin eine Nachricht auf WhatsApp">
+  <span class="wa-float__label">Schreib Katrin eine Nachricht</span>
+  <span class="wa-float__btn">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.04 21.5h-.01a9.43 9.43 0 0 1-4.8-1.31l-.35-.21-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.24-9.44 9.45-9.44 2.52 0 4.89.98 6.67 2.77a9.37 9.37 0 0 1 2.76 6.68c0 5.21-4.24 9.44-9.44 9.44zm8.03-17.47A11.28 11.28 0 0 0 12.04.7C5.78.7.68 5.8.68 12.06c0 2 .52 3.96 1.52 5.68L.58 23.3l5.69-1.49a11.33 11.33 0 0 0 5.77 1.47h.01c6.26 0 11.36-5.1 11.36-11.36 0-3.03-1.18-5.89-3.33-8.03z"/></svg>
+  </span>
+</a>
+
+<script>
+  // Bubble: zwei Hinweise im Wechsel; der Storno-Hinweis zählt bis 6. Januar 2027 herunter
+  (function () {
+    var nudge = document.getElementById('nudge');
+    if (!nudge) return;
+    var text = document.getElementById('nudgeText');
+    var icon = document.getElementById('nudgeIcon');
+    var ICON_BOLT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>';
+    var ICON_SHIELD = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>';
+
+    var msgs = [{ icon: ICON_BOLT, title: 'Die erste FitWeek war in 7 Tagen ausgebucht', sub: 'Diesmal gibt es nur 10 Plätze.' }];
+    var deadline = new Date('2027-01-07T00:00:00+01:00');
+    var days = Math.ceil((deadline - new Date()) / 86400000);
+    if (days > 0) {
+      msgs.push({
+        icon: ICON_SHIELD,
+        title: days === 1 ? 'Heute letzter Tag kostenlos stornierbar' : 'Noch ' + days + ' Tage kostenlos stornierbar',
+        sub: 'Sichere dir deinen Platz ohne Risiko.'
+      });
+    }
+
+    function show(i) {
+      icon.innerHTML = msgs[i].icon;
+      text.querySelector('.nudge__title').textContent = msgs[i].title;
+      text.querySelector('.nudge__sub').textContent = msgs[i].sub;
+    }
+
+    var closed = false;
+    try { closed = sessionStorage.getItem('nudgeClosed') === '1'; } catch (e) {}
+    if (closed) return;
+
+    var i = 0, timer;
+    show(0);
+    setTimeout(function () {
+      nudge.classList.add('is-visible');
+      if (msgs.length > 1) {
+        timer = setInterval(function () {
+          text.classList.add('is-fading');
+          setTimeout(function () { i = (i + 1) % msgs.length; show(i); text.classList.remove('is-fading'); }, 300);
+        }, 9000);
+      }
+    }, 6000);
+
+    document.getElementById('nudgeClose').addEventListener('click', function () {
+      nudge.classList.remove('is-visible');
+      clearInterval(timer);
+      try { sessionStorage.setItem('nudgeClosed', '1'); } catch (e) {}
+    });
+  })();
+
+  // WhatsApp-Button: erscheint später; auf dem Handy wird das Label nach ein paar Sekunden ausgeblendet
+  (function () {
+    var wa = document.getElementById('waFloat');
+    if (!wa) return;
+    setTimeout(function () {
+      wa.classList.add('is-visible');
+      setTimeout(function () { wa.classList.add('label-hidden'); }, 6000);
+    }, 20000);
+  })();
+</script>
 
 <script src="../assets/js/script.js" defer></script>
 <script>
